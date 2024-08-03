@@ -13,14 +13,14 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="font-sans">
-      <div className="flex justify-center bg-gray-100 p-10">
+      <div className="flex justify-center bg-gray-100 px-10 py-5">
         <Ad />
       </div>
-      <div className="bg-liverRed">
+      <div className="bg-liverRed pt-12">
         <div className="px-20 z-20 sticky top-0">
           <Navbar />
         </div>
-        <div className="space-y-10 bg-white mt-5">
+        <div className="space-y-10 bg-white mt-10">
           <div className="bg-liverRed pb-32">
             <Headlines />
           </div>

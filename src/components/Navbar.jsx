@@ -21,7 +21,7 @@ export default function Navbar() {
       }, []);
 
   return (
-    <nav className={`bg-liverRed px-6 overflow-visible flex items-center justify-between ${scrolled ? 'h-14' : 'h-full' }`}>
+    <nav className='bg-liverRed px-6 overflow-visible flex items-center justify-between h-14'>
         <div className='flex p-3'>
             <img src={scrolled ? 'LFC.svg' : 'liverpoolfc_crest.png'} alt="" className={scrolled ? 'h-14 w-14' : 'h-28 '} />
         </div>
