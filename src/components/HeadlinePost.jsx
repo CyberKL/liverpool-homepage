@@ -74,7 +74,7 @@ export default function HeadlinePost({
           <img src={Image} alt="" className="" />
         </div>
         <div className={dark ? "text-black" : "text-white"}>
-          <time datetime={time}>
+          <time dateTime={time}>
             <span
               className={`text-xs ${dark ? "text-gray-600" : "text-pink-200"}`}
             >
