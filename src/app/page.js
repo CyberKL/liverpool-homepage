@@ -9,15 +9,16 @@ import Community from "@/components/Community";
 import Trophies from "@/components/Trophies";
 import Memory from "@/components/Memory";
 import Footer from "@/components/Footer";
+import Menu from "@/components/Menu";
 
 export default function Home() {
   return (
-    <div className="font-sans">
+    <div>
       <div className="flex justify-center bg-gray-100 px-10 py-5">
         <Ad />
       </div>
       <div className="bg-liverRed pt-12">
-        <div className="px-20 z-20 sticky top-0">
+        <div className="px-20 z-40 sticky top-0">
           <Navbar />
         </div>
         <div className="space-y-10 bg-white mt-10">

@@ -1,54 +1,243 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from "react";
+import Menu from "./Menu";
+import LangMenu from "./LangMenu";
+import Link from "next/link";
 
 export default function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [menuTransition, setMenuTransition] = useState(false);
+  const [overlay, setOverlay] = useState(false);
+  const timeoutIdRef = useRef(null);
+  const [section, setSection] = useState("");
+  const [arrowRotaion, setArrowRotation] = useState({ rotate: "90deg" });
+  const [langMenuVisible, setLangMenuVisible] = useState(false);
+  const navbarRef = useRef(null);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            console.log(window.scrollY)
-          if (window.scrollY > 200) {
-            setScrolled(true);
-          } else {
-            setScrolled(false);
-          }
-        };
-    
-        window.addEventListener('scroll', handleScroll);
-    
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, []);
+  useEffect(() => {
+    if (menuVisible) {
+      setMenuTransition(true);
+    }
+  }, [menuVisible]);
+
+  const handleMouseEnter = (sectionName) => {
+    if (langMenuVisible) {
+      closeLangMenu();
+    }
+    setSection(sectionName);
+    clearTimeout(timeoutIdRef.current);
+    setMenuVisible(true);
+    setOverlay(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (menuVisible) {
+      timeoutIdRef.current = setTimeout(() => {
+        setTimeout(() => setOverlay(false), 100);
+        setTimeout(() => setMenuVisible(false), 300);
+        setMenuTransition(false);
+      }, 400);
+    }
+  };
+
+  const closeMenu = () => {
+    setTimeout(() => setOverlay(false), 100);
+    setTimeout(() => setMenuVisible(false), 300);
+    setMenuTransition(false);
+  };
+
+  const handleClick = (sectionName) => {
+    if (langMenuVisible) {
+      closeLangMenu();
+    }
+    if (menuVisible) {
+      closeMenu();
+    } else {
+      setSection(sectionName);
+      setMenuVisible(true);
+      setOverlay(true);
+    }
+  };
+
+  const closeLangMenu = () => {
+    setArrowRotation({ rotate: "90deg" });
+    setLangMenuVisible(false);
+    setOverlay(false);
+  };
+
+  const handleLangClick = () => {
+    if (menuVisible) {
+      closeMenu();
+    }
+    if (langMenuVisible) {
+      closeLangMenu();
+    } else {
+      setArrowRotation({ rotate: "270deg" });
+      setLangMenuVisible(true);
+      setOverlay(true);
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target)
+      ) {
+        closeLangMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [langMenuVisible]);
 
   return (
-    <nav className='bg-liverRed px-6 overflow-visible flex items-center justify-between h-14'>
-        <div className='flex p-3'>
-            <img src={scrolled ? 'LFC.svg' : 'liverpoolfc_crest.png'} alt="" className={scrolled ? 'h-14 w-14' : 'h-28 '} />
-        </div>
-        <div className='flex ml-auto items-center text-white text-sm font-bold font-sans gap-5'>
-            <div className='border-r border-gray-400 pr-3'>
-                <ul className='flex gap-5'>
-                    <li>NEWS</li>
-                    <li>FIXTURES & TEAMS</li>
-                    <li>TICKETS & BOOKING</li>
-                    <li>SHOP</li>
-                    <li>VIDEO</li>
-                    <li>MORE</li>
-                </ul>
+    <div className="relative">
+      {overlay && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-10 z-10" />
+      )}
+      <div onMouseLeave={handleMouseLeave} ref={navbarRef}>
+        <nav
+          className="relative bg-liverRed px-6 overflow-visible flex items-center justify-between h-14 z-40"
+          onMouseEnter={() => clearTimeout(timeoutIdRef.current)}
+        >
+          <div className="flex p-3">
+            <img
+              src={scrolled ? "LFC.svg" : "liverpoolfc_crest.png"}
+              alt=""
+              className={scrolled ? "h-14 w-14 z-50" : "h-28 z-50"}
+            />
+          </div>
+          <div className="flex ml-auto items-center text-white text-sm font-bold gap-8">
+            <div className="border-r border-gray-400 pr-6">
+              <ul className="flex gap-8">
+                <li>
+                  <button
+                    onMouseEnter={() => handleMouseEnter("News")}
+                    onClick={() => handleClick("News")}
+                    className="hover:opacity-80"
+                  >
+                    NEWS
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onMouseEnter={() => handleMouseEnter("Fixtures & Teams")}
+                    onClick={() => handleClick("Fixtures & Teams")}
+                    className="hover:opacity-80"
+                  >
+                    FIXTURES & TEAMS
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onMouseEnter={() => handleMouseEnter("Tickets & Booking")}
+                    onClick={() => handleClick("Tickets & Booking")}
+                    className="hover:opacity-80"
+                  >
+                    TICKETS & BOOKING
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onMouseEnter={() => handleMouseEnter("Shop")}
+                    onClick={() => handleClick("Shop")}
+                    className="hover:opacity-80"
+                  >
+                    SHOP
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onMouseEnter={() => handleMouseEnter("Video")}
+                    onClick={() => handleClick("Video")}
+                    className="hover:opacity-80"
+                  >
+                    VIDEO
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onMouseEnter={() => handleMouseEnter("More")}
+                    onClick={() => handleClick("More")}
+                    className="hover:opacity-80"
+                  >
+                    MORE
+                  </button>
+                </li>
+              </ul>
             </div>
-            <div className='border-r border-gray-400 pr-3'>
-                <ul className='flex gap-5'>
-                    <li>JOIN</li>
-                    <li>LOGIN</li>
-                </ul>
+            <div className="border-r border-gray-400 pr-6">
+              <ul className="flex gap-8">
+                <li>
+                  <Link href={'/'} className="flex items-center gap-2 hover:opacity-80">
+                    <img src="join.svg" alt="" />
+                    JOIN
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'/'} className="hover:opacity-80">
+                    LOGIN
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <div className='border-r border-gray-400 pr-3'>
-                <p>EN</p>
+            <div className="border-r border-gray-400 pr-6">
+              <button
+                className="flex items-center gap-2"
+                onClick={handleLangClick}
+              >
+                <img src="lang.svg" alt="" className="h-4" />
+                <div className="flex items-center gap-1">
+                  <p>EN</p>
+                  <img
+                    src="arrow.svg"
+                    alt=""
+                    className={`filter invert h-4 `}
+                    style={arrowRotaion}
+                  />
+                </div>
+              </button>
             </div>
             <div>
-                <img src="Standard_Chartered.svg" alt="" className='h-7 pr-3' />
+              <Link href={'https://www.sc.com/en/'}>
+                <img src="Standard_Chartered.svg" alt="" className="h-7 pr-6"/>
+              </Link>
             </div>
+          </div>
+        </nav>
+        <div
+          className={`absolute left-0 right-0 z-30 transition-all duration-300 ease-in-out ${
+            menuTransition ? "opacity-100" : "opacity-0"
+          }`}
+          onMouseEnter={() => clearTimeout(timeoutIdRef.current)}
+        >
+          {menuVisible && <Menu Section={section} />}
         </div>
-    </nav>
-  )
+        <div className="absolute left-auto right-0 w-min z-30">
+          {langMenuVisible && <LangMenu />}
+        </div>
+      </div>
+    </div>
+  );
 }

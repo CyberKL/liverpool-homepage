@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +11,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: white;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 @layer utilities {

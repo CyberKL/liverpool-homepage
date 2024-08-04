@@ -48,13 +48,13 @@ export default function Footer() {
                 </div>
                 <div className='ml-auto space-y-16 flex flex-col items-end'>
                     <div className='flex gap-3'>
-                        <img src="facebook.svg" alt="" className='h-8' />
-                        <img src="linkedin.svg" alt="" className='h-8' />
-                        <img src="tiktok.svg" alt="" className='h-8' />
-                        <img src="instagram.svg" alt="" className='h-8' />
-                        <img src="x.svg" alt="" className='h-8' />
-                        <img src="youtube.svg" alt="" className='h-8' />
-                        <img src="onefootball.svg" alt="" className='h-8' />
+                        <img src="facebook.svg" alt="" className='h-8 filter invert brightness-0 contrast-100' />
+                        <img src="linkedin.svg" alt="" className='h-8 filter invert brightness-0 contrast-100' />
+                        <img src="tiktok.svg" alt="" className='h-8 filter invert brightness-0 contrast-100' />
+                        <img src="instagram.svg" alt="" className='h-8 filter invert brightness-0 contrast-100' />
+                        <img src="x.svg" alt="" className='h-8 filter invert brightness-0 contrast-100' />
+                        <img src="youtube.svg" alt="" className='h-8 filter invert brightness-0 contrast-100' />
+                        <img src="onefootball.svg" alt="" className='h-8 filter invert brightness-0 contrast-100' />
                     </div>
                     <div className='flex items-center gap-4'>
                         <p className='font-bold'>DOWNLOAD THE OFFICAL LFC APP</p>
