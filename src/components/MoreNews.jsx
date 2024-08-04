@@ -5,7 +5,7 @@ export default function MoreNews() {
     <div className=''>
         <div className='flex flex-col items-center w-full'>
             <div className='space-y-8'>
-                <div className='py-2 px-5 bg-black text-xs font-bold text-white w-fit rounded-3xl'>
+                <div className='py-2 px-5 bg-black text-sm font-bold text-white w-fit rounded-3xl'>
                     <span>MORE NEWS</span>
                 </div>
                 <div className='space-y-10 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 w-[50rem] p-3'>

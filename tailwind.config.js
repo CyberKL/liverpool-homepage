@@ -16,6 +16,9 @@ module.exports = {
         liverRed: {
           DEFAULT: '#dc0714'
         }
+      },
+      fontFamily: {
+        roboto: ['Roboto']
       }
     },
   },

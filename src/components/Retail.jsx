@@ -1,30 +1,53 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import RetailPost from './RetailPost'
+import RetailSection from './RetailSection'
 
 export default function Retail() {
+    const [activeSection, setActiveSection] = useState("Away")
+
+    const handleClick = (e) => {
+        switch (e.target.id) {
+            case "Away": {
+                if (activeSection !== "Away") {
+                    setActiveSection("Away")
+                }
+                break;
+            }
+            case "Training": {
+                if (activeSection !== "Training") {
+                    setActiveSection("Training")
+                }
+                break;
+            }
+            case "Like": {
+                if (activeSection !== "Like") {
+                    setActiveSection("Like")
+                }
+                break;
+            }
+        }
+    }
+
+
   return (
     <div className='space-y-5 px-20'>
-        <div className='py-2 px-5 bg-black text-xs font-bold text-white w-fit rounded-3xl'>
+        <div className='py-2 px-5 bg-black text-sm font-bold text-white w-fit rounded-3xl'>
             <span>LFC RETAIL</span>
         </div>
         <div className=''>
-            <ul className='flex gap-8'>
-                <li>NEW: 24/25 AWAY KIT</li>
-                <li>NEW: 24/25 TRAINING</li>
-                <li>YOU MAY LIKE</li>
+            <ul className='flex gap-7 border-b border-gray-200 font-bold text-sm'>
+                <li><button id='Away' className={`py-4 ${activeSection === 'Away' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>NEW: 24/25 AWAY KIT</button></li>
+                <li><button id='Training' className={`py-4 ${activeSection === 'Training' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>NEW: 24/25 TRAINING</button></li>
+                <li><button id='Like' className={`py-4 ${activeSection === 'Like' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>YOU MAY LIKE</button></li>
             </ul>
         </div>
-        <div className='flex gap-10'>
-            <RetailPost />
-            <RetailPost />
-            <RetailPost />
-            <RetailPost />
-            <RetailPost />
-        </div>
+        <RetailSection Section={activeSection} />
         <div className='flex justify-center items-center'>
-            <button className='flex items-center px-5 pb-4 bg-yellow-300 h-12 hover:bg-opacity-95'>
+            <button className='flex items-center px-5 pb-4 w-[18%] bg-yellow-300 h-16 font-bold hover:bg-opacity-95 group'>
                 VISIT THE LFC STORE NOW
-                <img src="arrow.svg" alt="" className='h-4' />
+                <img src="arrow.svg" alt="" className='h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
             </button>
         </div>
     </div>

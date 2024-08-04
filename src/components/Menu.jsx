@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Menu({ Section }) {
     const data = {
@@ -80,13 +81,27 @@ export default function Menu({ Section }) {
           </ul>
         </div>
         <div className="ml-auto flex gap-3">
-          <img src="facebook.svg" alt="" className="h-8" />
-          <img src="linkedin.svg" alt="" className="h-8" />
-          <img src="tiktok.svg" alt="" className="h-8" />
-          <img src="instagram.svg" alt="" className="h-8" />
-          <img src="x.svg" alt="" className="h-8" />
-          <img src="youtube.svg" alt="" className="h-8" />
-          <img src="onefootball.svg" alt="" className="h-8" />
+        <Link href={''}>
+            <img src="facebook.svg" alt="Facebook" className='h-8' />
+        </Link>
+        <Link href={''}>
+            <img src="linkedin.svg" alt="LinkedIn" className='h-8' />
+        </Link>
+        <Link href={''}>
+            <img src="tiktok.svg" alt="TikTok" className='h-8' />
+        </Link>
+        <Link href={''}>
+            <img src="instagram.svg" alt="Instagram" className='h-8' />
+        </Link>
+        <Link href={''}>
+            <img src="x.svg" alt="X" className='h-8' />
+        </Link>
+        <Link href={''}>
+            <img src="youtube.svg" alt="YouTube" className='h-8' />
+        </Link>
+        <Link href={''}>
+            <img src="onefootball.svg" alt="OneFootball" className='h-8' />
+        </Link>
         </div>
       </div>
     </div>

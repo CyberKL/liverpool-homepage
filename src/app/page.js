@@ -9,13 +9,12 @@ import Community from "@/components/Community";
 import Trophies from "@/components/Trophies";
 import Memory from "@/components/Memory";
 import Footer from "@/components/Footer";
-import Menu from "@/components/Menu";
 
 export default function Home() {
   return (
     <div>
       <div className="flex justify-center bg-gray-100 px-10 py-5">
-        <Ad />
+        <Ad Ad={'ad4.gif'} Height={'h-[6rem]'} />
       </div>
       <div className="bg-liverRed pt-12">
         <div className="px-20 z-40 sticky top-0">
@@ -28,26 +27,28 @@ export default function Home() {
           <div>
             <Retail />
           </div>
-          <div className="flex justify-center bg-gray-100 p-10">
-            <Ad />
+          <div className="flex justify-center bg-gray-100 p-16 gap-8">
+            <Ad Ad={'ad.gif'} />
+            <Ad Ad={'box-ad.gif'} />
           </div>
           <div>
             <Fixtures /> 
           </div>
-          <div className="flex justify-center bg-gray-100 p-10">
-            <Ad />
+          <div className="flex justify-center bg-gray-100 p-16">
+            <Ad Ad={'ad2.png'} />
           </div>
           <div>
             <MoreNews />
           </div>
           <div>
-            <div className="flex justify-center bg-gray-100 p-10">
-              <Ad />
+            <div className="flex justify-center bg-gray-100 p-16 gap-8">
+              <Ad Ad={'ad3.jpg'} />
+              <Ad Ad={'ad3.gif'} />
             </div>
-            <div className="bg-liverRed pb-20">
+            <div className="bg-liverRed pb-24 pt-14">
               <Women />
             </div>
-            <div className="bg-gray-100 pt-12 pb-20">
+            <div className="bg-gray-100 pt-12 pb-24">
               <Community />
             </div>
           </div>

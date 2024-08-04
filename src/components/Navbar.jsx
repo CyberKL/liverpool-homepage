@@ -122,11 +122,13 @@ export default function Navbar() {
           onMouseEnter={() => clearTimeout(timeoutIdRef.current)}
         >
           <div className="flex p-3">
-            <img
-              src={scrolled ? "LFC.svg" : "liverpoolfc_crest.png"}
-              alt=""
-              className={scrolled ? "h-14 w-14 z-50" : "h-28 z-50"}
-            />
+            <Link href={'/'}>
+              <img
+                src={scrolled ? "LFC.svg" : "liverpoolfc_crest.png"}
+                alt=""
+                className={scrolled ? "h-14 w-14 z-50" : "h-28 z-50"}
+              />
+            </Link>
           </div>
           <div className="flex ml-auto items-center text-white text-sm font-bold gap-8">
             <div className="border-r border-gray-400 pr-6">
