@@ -198,13 +198,13 @@ export default function Navbar() {
             <div className="border-r border-gray-400 pr-6">
               <ul className="flex gap-8">
                 <li>
-                  <Link to={''} className="flex items-center gap-2 hover:opacity-80">
+                  <Link to={'join'} className="flex items-center gap-2 hover:opacity-80">
                     <img src={join} alt="" />
                     JOIN
                   </Link>
                 </li>
                 <li>
-                  <Link to={'/login'} className="hover:opacity-80">
+                  <Link to={'login'} className="hover:opacity-80">
                     LOGIN
                   </Link>
                 </li>

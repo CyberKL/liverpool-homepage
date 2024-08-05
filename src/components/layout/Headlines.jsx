@@ -11,7 +11,7 @@ export default function Headlines() {
             <div className='px-3 py-2 bg-black bg-opacity-15 rounded-3xl'>
                 <span>HEADLINES</span>
             </div>
-            <Link to={''} className='ml-auto flex items-center group hover:opacity-80'>
+            <Link to={'news'} className='ml-auto flex items-center group hover:opacity-80'>
                 <span>ALL NEWS</span>
                 <img src={arrow} alt="" className='h-4 filter invert transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
             </Link>

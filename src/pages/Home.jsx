@@ -9,15 +9,18 @@ import Community from "../components/layout/Community";
 import Trophies from "../components/layout/Trophies";
 import Memory from "../components/layout/Memory";
 import Footer from "../components/common/Footer";
+import usePageTitle from "../hooks/usePageTitle";
 
-import ad4 from '../assets/ad4.gif'
-import ad from '../assets/ad.gif'
-import ad2 from '../assets/ad2.png'
-import ad3 from '../assets/ad3.gif'
-import ad3j from '../assets/ad3.jpg'
-import boxAd from '../assets/box-ad.gif'
+import ad4 from "../assets/ad4.gif";
+import ad from "../assets/ad.gif";
+import ad2 from "../assets/ad2.png";
+import ad3 from "../assets/ad3.gif";
+import ad3j from "../assets/ad3.jpg";
+import boxAd from "../assets/box-ad.gif";
 
 export default function Home() {
+  usePageTitle("Liverpool FC — Homepage");
+
   return (
     <div>
       <div className="flex justify-center bg-gray-100 px-10 py-5">
@@ -39,7 +42,7 @@ export default function Home() {
             <Ad Ad={boxAd} />
           </div>
           <div>
-            <Fixtures /> 
+            <Fixtures />
           </div>
           <div className="flex justify-center bg-gray-100 p-16">
             <Ad Ad={ad2} />
