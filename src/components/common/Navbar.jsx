@@ -3,7 +3,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Menu from "./Menu";
 import LangMenu from "./LangMenu";
-import Link from "next/link";
+import { Link } from "react-router-dom";
+
+import arrow from '../../assets/arrow.svg'
+import lfc from '../../assets/LFC.svg'
+import join from '../../assets/join.svg'
+import lang from '../../assets/lang.svg'
+import standardChartered from '../../assets/Standard_Chartered.svg'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -122,9 +128,9 @@ export default function Navbar() {
           onMouseEnter={() => clearTimeout(timeoutIdRef.current)}
         >
           <div className="flex p-3">
-            <Link href={'/'}>
+            <Link to={''}>
               <img
-                src={scrolled ? "LFC.svg" : "liverpoolfc_crest.png"}
+                src={scrolled ? lfc : "liverpoolfc_crest.png"}
                 alt=""
                 className={scrolled ? "h-14 w-14 z-50" : "h-28 z-50"}
               />
@@ -192,13 +198,13 @@ export default function Navbar() {
             <div className="border-r border-gray-400 pr-6">
               <ul className="flex gap-8">
                 <li>
-                  <Link href={'/'} className="flex items-center gap-2 hover:opacity-80">
-                    <img src="join.svg" alt="" />
+                  <Link to={''} className="flex items-center gap-2 hover:opacity-80">
+                    <img src={join} alt="" />
                     JOIN
                   </Link>
                 </li>
                 <li>
-                  <Link href={'/'} className="hover:opacity-80">
+                  <Link to={'/login'} className="hover:opacity-80">
                     LOGIN
                   </Link>
                 </li>
@@ -209,11 +215,11 @@ export default function Navbar() {
                 className="flex items-center gap-2"
                 onClick={handleLangClick}
               >
-                <img src="lang.svg" alt="" className="h-4" />
+                <img src={lang} alt="" className="h-4" />
                 <div className="flex items-center gap-1">
                   <p>EN</p>
                   <img
-                    src="arrow.svg"
+                    src={arrow}
                     alt=""
                     className={`filter invert h-4 `}
                     style={arrowRotaion}
@@ -222,8 +228,8 @@ export default function Navbar() {
               </button>
             </div>
             <div>
-              <Link href={'https://www.sc.com/en/'}>
-                <img src="Standard_Chartered.svg" alt="" className="h-7 pr-6"/>
+              <Link to={'https://www.sc.com/en/'}>
+                <img src={standardChartered} alt="" className="h-7 pr-6"/>
               </Link>
             </div>
           </div>

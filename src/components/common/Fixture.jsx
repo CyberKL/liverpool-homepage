@@ -1,4 +1,6 @@
 import React from "react";
+import arrow from '../../assets/arrow.svg'
+import lfcLogo from '../../assets/lfc-logo.png'
 
 export default function Fixture({
   Tickets,
@@ -12,13 +14,13 @@ export default function Fixture({
   let home, away, winner, homeLogo, awayLogo;
   if (Home) {
     home = "Liverpool";
-    homeLogo = "lfc-logo.png";
+    homeLogo = lfcLogo;
     awayLogo = TeamLogo;
     away = Team;
   } else {
     home = Team;
     homeLogo = TeamLogo;
-    awayLogo = "lfc-logo.png";
+    awayLogo = lfcLogo;
     away = "Liverpool";
   }
 
@@ -88,7 +90,7 @@ export default function Fixture({
       <div className={Tickets || Score ? "block" : "invisible"}>
         <button className="text-white font-bold flex items-center px-5 pb-4 bg-black w-full h-20 hover:bg-opacity-60">
           {Score ? "MATCH REPORT" : "BUY TICKETS"}
-          <img src="arrow.svg" alt="" className="filter invert h-4" />
+          <img src={arrow} alt="" className="filter invert h-4" />
         </button>
       </div>
     </div>

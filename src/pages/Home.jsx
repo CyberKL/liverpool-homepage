@@ -1,20 +1,27 @@
-import Ad from "@/components/Ad";
-import Navbar from "@/components/Navbar";
-import Headlines from "@/components/Headlines";
-import Retail from "@/components/Retail";
-import Fixtures from "@/components/Fixtures";
-import MoreNews from "@/components/MoreNews";
-import Women from "@/components/Women";
-import Community from "@/components/Community";
-import Trophies from "@/components/Trophies";
-import Memory from "@/components/Memory";
-import Footer from "@/components/Footer";
+import Ad from "../components/common/Ad";
+import Navbar from "../components/common/Navbar";
+import Headlines from "../components/layout/Headlines";
+import Retail from "../components/layout/Retail";
+import Fixtures from "../components/layout/Fixtures";
+import MoreNews from "../components/layout/MoreNews";
+import Women from "../components/layout/Women";
+import Community from "../components/layout/Community";
+import Trophies from "../components/layout/Trophies";
+import Memory from "../components/layout/Memory";
+import Footer from "../components/common/Footer";
+
+import ad4 from '../assets/ad4.gif'
+import ad from '../assets/ad.gif'
+import ad2 from '../assets/ad2.png'
+import ad3 from '../assets/ad3.gif'
+import ad3j from '../assets/ad3.jpg'
+import boxAd from '../assets/box-ad.gif'
 
 export default function Home() {
   return (
     <div>
       <div className="flex justify-center bg-gray-100 px-10 py-5">
-        <Ad Ad={'ad4.gif'} Height={'h-[6rem]'} />
+        <Ad Ad={ad4} Height={"h-[6rem]"} />
       </div>
       <div className="bg-liverRed pt-12">
         <div className="px-20 z-40 sticky top-0">
@@ -28,22 +35,22 @@ export default function Home() {
             <Retail />
           </div>
           <div className="flex justify-center bg-gray-100 p-16 gap-8">
-            <Ad Ad={'ad.gif'} />
-            <Ad Ad={'box-ad.gif'} />
+            <Ad Ad={ad} />
+            <Ad Ad={boxAd} />
           </div>
           <div>
             <Fixtures /> 
           </div>
           <div className="flex justify-center bg-gray-100 p-16">
-            <Ad Ad={'ad2.png'} />
+            <Ad Ad={ad2} />
           </div>
           <div>
             <MoreNews />
           </div>
           <div>
             <div className="flex justify-center bg-gray-100 p-16 gap-8">
-              <Ad Ad={'ad3.jpg'} />
-              <Ad Ad={'ad3.gif'} />
+              <Ad Ad={ad3j} />
+              <Ad Ad={ad3} />
             </div>
             <div className="bg-liverRed pb-24 pt-14">
               <Women />

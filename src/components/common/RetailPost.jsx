@@ -1,9 +1,10 @@
 import React from 'react'
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
+import arrow from '../../assets/arrow.svg'
 
 export default function RetailPost({ Image, Description, Price, OriginalPrice }) {
   return (
-    <Link href={''} className='border border-gray-200 min-h flex flex-col'>
+    <Link to={''} className='border border-gray-200 min-h flex flex-col'>
         <div className='relative'>
             <img src={Image} alt="" className='w-auto h-full' />
             {OriginalPrice && (
@@ -25,7 +26,7 @@ export default function RetailPost({ Image, Description, Price, OriginalPrice })
                 </div>
                 <button className='text-white flex items-center px-5 pb-4 bg-black w-full h-16 hover:bg-opacity-60'>
                     BUY NOW
-                    <img src="arrow.svg" alt="" className='filter invert h-4' />
+                    <img src={arrow} alt="" className='filter invert h-4' />
                 </button>
             </div>
         </div>

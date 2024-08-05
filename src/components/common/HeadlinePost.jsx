@@ -1,8 +1,9 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import React from "react";
+import lfcDiary from '../../assets/lfc-diary-010824.webp'
 
 export default function HeadlinePost({
-  Image = "lfc-diary-010824.webp",
+  Image = lfcDiary,
   dark = false,
   title = "TOUR",
   text = "USA diary: Sightseeing, training with a difference and a debate about ironing",
@@ -66,7 +67,7 @@ export default function HeadlinePost({
 
   return (
     <Link
-      href={Source}
+      to={Source}
       className="px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200"
     >
       <div className="border-b border-gray-400 py-5 space-y-5 ">

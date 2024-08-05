@@ -1,18 +1,8 @@
-# liverpool-homepage
+# React + Vite
 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Installation
+Currently, two official plugins are available:
 
-```bash
-git clone https://github.com/CyberKL/liverpool-homepage.git
-cd liverpool-homepage
-npm install
-```
-
-## Running the project
-
-```bash
-npm run dev
-```
-
-After following the steps above you can visit `http://localhost:3000` on your browser to view the webpage
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

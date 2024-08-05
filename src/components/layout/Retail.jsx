@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useState } from 'react'
-import RetailPost from './RetailPost'
 import RetailSection from './RetailSection'
+import arrow from '../../assets/arrow.svg'
+
 
 export default function Retail() {
     const [activeSection, setActiveSection] = useState("Away")
@@ -47,7 +48,7 @@ export default function Retail() {
         <div className='flex justify-center items-center'>
             <button className='flex items-center px-5 pb-4 w-[18%] bg-yellow-300 h-16 font-bold hover:bg-opacity-95 group'>
                 VISIT THE LFC STORE NOW
-                <img src="arrow.svg" alt="" className='h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
+                <img src={arrow} alt="" className='h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
             </button>
         </div>
     </div>

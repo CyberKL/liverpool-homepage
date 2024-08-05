@@ -1,5 +1,16 @@
 import React from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
+
+// Import images
+import app from '../../assets/app.webp';
+import arrow from '../../assets/arrow.svg';
+import facebook from '../../assets/facebook.svg';
+import linkedin from '../../assets/linkedin.svg';
+import tiktok from '../../assets/tiktok.svg';
+import instagram from '../../assets/instagram.svg';
+import x from '../../assets/x.svg';
+import youtube from '../../assets/youtube.svg';
+import onefootball from '../../assets/onefootball.svg';
 
 export default function Menu({ Section }) {
     const data = {
@@ -21,7 +32,7 @@ export default function Menu({ Section }) {
                         <p className="font-bold text-sm">{key}</p>
                         <ul className="space-y-2">
                             {value.map(element => (
-                                    <li>{element}</li>
+                                    <li key={element}>{element}</li>
                             ))}
                         </ul>
                     </div>
@@ -31,11 +42,11 @@ export default function Menu({ Section }) {
             {Section === "Shop" && (
               <div className="space-y-8 w-[21rem]">
                 <div>
-                  <img src="app.webp" alt="" className="" />
+                  <img src={app} alt="" className="" />
                 </div>
                 <div className="flex items-center gap-1">
                   <span>DOWNLOAD THE STORE APP</span>
-                  <img src="arrow.svg" alt="" className="h-3" />
+                  <img src={arrow} alt="" className="h-3" />
                 </div>
                 <hr />
               </div>
@@ -53,7 +64,7 @@ export default function Menu({ Section }) {
               <div>
                 <button className="flex items-center px-5 pb-4 bg-black w-full h-16 hover:bg-opacity-60">
                   REGISTER NOW
-                  <img src="arrow.svg" alt="" className="filter invert h-4" />
+                  <img src={arrow} alt="" className="filter invert h-4" />
                 </button>
               </div>
             </div>
@@ -81,27 +92,27 @@ export default function Menu({ Section }) {
           </ul>
         </div>
         <div className="ml-auto flex gap-3">
-        <Link href={''}>
-            <img src="facebook.svg" alt="Facebook" className='h-8' />
-        </Link>
-        <Link href={''}>
-            <img src="linkedin.svg" alt="LinkedIn" className='h-8' />
-        </Link>
-        <Link href={''}>
-            <img src="tiktok.svg" alt="TikTok" className='h-8' />
-        </Link>
-        <Link href={''}>
-            <img src="instagram.svg" alt="Instagram" className='h-8' />
-        </Link>
-        <Link href={''}>
-            <img src="x.svg" alt="X" className='h-8' />
-        </Link>
-        <Link href={''}>
-            <img src="youtube.svg" alt="YouTube" className='h-8' />
-        </Link>
-        <Link href={''}>
-            <img src="onefootball.svg" alt="OneFootball" className='h-8' />
-        </Link>
+          <Link to={''}>
+            <img src={facebook} alt="Facebook" className='h-8' />
+          </Link>
+          <Link to={''}>
+            <img src={linkedin} alt="LinkedIn" className='h-8' />
+          </Link>
+          <Link to={''}>
+            <img src={tiktok} alt="TikTok" className='h-8' />
+          </Link>
+          <Link to={''}>
+            <img src={instagram} alt="Instagram" className='h-8' />
+          </Link>
+          <Link to={''}>
+            <img src={x} alt="X" className='h-8' />
+          </Link>
+          <Link to={''}>
+            <img src={youtube} alt="YouTube" className='h-8' />
+          </Link>
+          <Link to={''}>
+            <img src={onefootball} alt="OneFootball" className='h-8' />
+          </Link>
         </div>
       </div>
     </div>

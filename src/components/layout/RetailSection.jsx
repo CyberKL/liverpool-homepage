@@ -1,5 +1,8 @@
 import React from 'react'
-import RetailPost from './RetailPost'
+import RetailPost from '../common/RetailPost'
+import model1 from '../../assets/model.jpg'
+import model2 from '../../assets/model2.jpg'
+import model3 from '../../assets/model3.jpg'
 
 export default function RetailSection({ Section }) {
     // This should be handled with a backend
@@ -9,19 +12,19 @@ export default function RetailSection({ Section }) {
     let originalPrice
     switch(Section){
         case "Away": {
-            image = 'model.jpg'
+            image = model1
             description = 'LFC NIKE MENS 24/25 AWAY STADIUM JERSEY'
             price = '80.00'
             break;
         }
         case "Training": {
-            image = 'model2.jpg'
+            image = model2
             description = 'LFC Nike Mens 24/25 Away Pre-Match Short Sleeved Top Washed Teal'
             price = '55.00'
             break;
         }
         case "Like": {
-            image = 'model3.jpg'
+            image = model3
             description = 'LFC Nike Mens 23/24 Dri-FIT Strike Track Jacket '
             price = '30.00'
             originalPrice = '74.95'

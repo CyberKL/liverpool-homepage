@@ -1,4 +1,5 @@
 import React from 'react'
+import lfcDiary from '../../assets/lfc-diary-010824.webp'
 
 export default function MoreNews() {
   return (
@@ -17,7 +18,7 @@ export default function MoreNews() {
                         <span className='text-xs'>16 HOURS AGO</span>
                     </div>
                     <div>
-                        <img src="lfc-diary-010824.webp" alt="" className='w-[50rem]' />
+                        <img src={lfcDiary} alt="" className='w-[50rem]' />
                     </div>
                 </div>
             </div>
