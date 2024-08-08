@@ -66,13 +66,13 @@ export default function HeadlinePost({
   }
 
   return (
-    <Link
+    <div
       to={Source}
-      className="px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200"
+      className="px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 h-full"
     >
-      <div className="border-b border-gray-400 py-5 space-y-5 ">
+      <div className="border-b border-gray-400 py-5 space-y-5 h-full">
         <div>
-          <img src={Image} alt="" className="" />
+          <img src={Image} alt="" className="w-full" />
         </div>
         <div className={dark ? "text-black" : "text-white"}>
           <time dateTime={time}>
@@ -88,6 +88,6 @@ export default function HeadlinePost({
           </h2>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

@@ -109,7 +109,7 @@ export default function Footer() {
               <li><Link to={''}>HELP</Link></li>
             </ul>
             <ul className='space-y-2'>
-              <li><Link to={'contact-us'}>CONTACT US</Link></li>
+              <li><Link to={'/contact-us'}>CONTACT US</Link></li>
               <li><Link to={''}>ACCESSIBILITY</Link></li>
               <li><Link to={''}>COOKIE SETTINGS</Link></li>
             </ul>

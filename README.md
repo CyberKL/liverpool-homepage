@@ -15,4 +15,4 @@ npm install
 npm run dev
 ```
 
-After following the steps above you can visit `http://localhost:3000` on your browser to view the webpage
+After following the steps above you can visit `http://localhost:5173` on your browser to view the website

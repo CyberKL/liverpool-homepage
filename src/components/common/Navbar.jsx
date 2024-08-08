@@ -11,7 +11,7 @@ import join from '../../assets/join.svg'
 import lang from '../../assets/lang.svg'
 import standardChartered from '../../assets/Standard_Chartered.svg'
 
-export default function Navbar() {
+export default function Navbar({ scrollValue=200 }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [menuTransition, setMenuTransition] = useState(false);
@@ -88,7 +88,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > scrollValue) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -198,13 +198,13 @@ export default function Navbar() {
             <div className="border-r border-gray-400 pr-6">
               <ul className="flex gap-8">
                 <li>
-                  <Link to={'join'} className="flex items-center gap-2 hover:opacity-80">
+                  <Link to={'/join'} className="flex items-center gap-2 hover:opacity-80">
                     <img src={join} alt="" />
                     JOIN
                   </Link>
                 </li>
                 <li>
-                  <Link to={'login'} className="hover:opacity-80">
+                  <Link to={'/login'} className="hover:opacity-80">
                     LOGIN
                   </Link>
                 </li>

@@ -16,7 +16,7 @@ export default function Menu({ Section }) {
   const data = {
     News: {
       NEWS: [
-        ["All News", "news"],
+        ["All News", "/news"],
         ["Men", ""],
         ["Women", ""],
         ["Academy", ""],
@@ -154,6 +154,7 @@ export default function Menu({ Section }) {
                 className={`space-y-5 ${
                   key === "SALE" ? "col-start-2 -mt-32" : ""
                 }`}
+                key={key}
               >
                 <p className="font-bold text-sm">{key}</p>
                 <ul className="space-y-2">

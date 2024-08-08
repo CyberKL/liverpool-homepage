@@ -14,12 +14,27 @@ module.exports = {
       },
       colors: {
         liverRed: {
-          DEFAULT: '#dc0714'
-        }
+          DEFAULT: "#dc0714",
+        },
       },
       fontFamily: {
-        roboto: ['Roboto']
-      }
+        roboto: ["Roboto"],
+      },
+      keyframes: {
+        ripple: {
+          "0%": {
+            transform: "scale(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scale(4)",
+            opacity: "0",
+          },
+        },
+      },
+      animation: {
+        ripple: "ripple 500ms linear",
+      },
     },
   },
   plugins: [],
