@@ -6,7 +6,7 @@ import Footer from "../components/common/Footer";
 
 import usePageTitle from "../hooks/usePageTitle";
 
-export default function ContactUS() {
+export default function ContactUs() {
   usePageTitle("Liverpool FC — Contact Us");
 
   const [scrolled, setScrolled] = useState(false);
