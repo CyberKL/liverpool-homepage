@@ -4,7 +4,7 @@ export default function FormField({ type='text', name, label, value, handleChang
     const [isFocused, setIsFocused] = useState(false);
     const showError = name === 'conPassword' ? !isValid : !isValid && value ;
   return (
-    <div className="relative p-5 w-full">
+    <div className="relative p-5 w-full sm:col-span-6 col-span-full">
       <label
         htmlFor={name}
         className={`text-xs absolute left-7 top-3  bg-white px-1 ${

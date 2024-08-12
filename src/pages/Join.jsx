@@ -235,8 +235,7 @@ export default function Join() {
         <div className="bg-white flex justify-center items-center pt-16 pb-32">
           <div className="max-w-screen-sm">
             <form className="flex flex-col m-5 gap-3 w-full">
-              <div className="xl:w-full mb-2">
-                <div className="flex w-full">
+              <div className="mb-2 grid grid-cols-12 max-w-xs sm:max-w-full">
                   <FormField
                     name="fname"
                     label="First name"
@@ -253,8 +252,6 @@ export default function Join() {
                     isValid={lname}
                     error={["This is a required field"]}
                   />
-                </div>
-                <div className="flex">
                   <FormField
                     type="email"
                     name="email"
@@ -273,8 +270,6 @@ export default function Join() {
                     error={[dobError]}
                     useIcons={false}
                   />
-                </div>
-                <div className="flex">
                   <FormField
                     type="password"
                     name="password"
@@ -295,8 +290,7 @@ export default function Join() {
                     error={[]}
                     useIcons={false}
                   />
-                </div>
-                <div className="w-full p-5">
+                <div className="col-span-full p-5">
                   <div className="p-4 bg-gray-100 text-[0.625rem] text-gray-600">
                     <h6 className="font-bold mb-1">
                       For your security please ensure your password:
@@ -314,8 +308,8 @@ export default function Join() {
                     </ul>
                   </div>
                 </div>
-                <div className="flex">
-                  <div className="relative w-full p-5">
+                <div className="col-span-full grid grid-cols-12">
+                  <div className="relative sm:col-span-6 col-span-full p-5">
                     <label className="text-gray-600 text-xs absolute left-7 top-3 bg-white px-1">
                       Gender
                     </label>
@@ -335,7 +329,7 @@ export default function Join() {
                       </option>
                     </select>
                   </div>
-                  <div className="relative w-full p-5">
+                  <div className="relative sm:col-span-6 col-span-full p-5">
                     <label className="text-gray-600 text-xs absolute left-7 top-3 bg-white px-1">
                       Country <span className="text-red-600">*</span>
                     </label>
@@ -359,15 +353,15 @@ export default function Join() {
                     </select>
                   </div>
                 </div>
-                <div className="p-5 flex flex-col">
-                  <div className="mb-1">
+                <div className="p-5 grid grid-cols-12 col-span-full">
+                  <div className="mb-1 col-span-full">
                     <span className="uppercase text-gray-600 font-bold">
                       get more from lfc?
                     </span>
                   </div>
-                  <div className="mb-4">
-                    <div className="flex items-start">
-                      <div className="mt-4 space-y-1">
+                  <div className="mb-4 col-span-full">
+                    <div className="grid grid-cols-12 sm:place-items-start">
+                      <div className="mt-4 space-y-1 sm:col-span-6 col-span-full">
                         <p className="text-xs">
                           Do you want to hear about our products, competitions,
                           new signings, tickets, club news and partner offers?
@@ -377,9 +371,9 @@ export default function Join() {
                           do not share your information directly with them.
                         </p>
                       </div>
-                      <div className="flex gap-4">
+                      <div className="grid grid-cols-12 gap-x-4 sm:col-span-6 col-span-full gap-4">
                         <label
-                          className="flex items-center border-4 border-red-600 text-red-600 cursor-pointer"
+                          className="sm:col-span-4 col-span-full flex items-center border-4 border-red-600 text-red-600 cursor-pointer"
                           onClick={() => setSelectedRadio("yes")}
                         >
                           <div className="grid place-items-center p-[9px]">
@@ -398,7 +392,7 @@ export default function Join() {
                           </span>
                         </label>
                         <label
-                          className="flex items-center border-4 border-red-600 text-red-600 cursor-pointer"
+                          className="sm:col-span-4 col-span-full flex items-center border-4 border-red-600 text-red-600 cursor-pointer"
                           onClick={() => setSelectedRadio("no")}
                         >
                           <div className="grid place-items-center p-[9px]">
@@ -417,7 +411,7 @@ export default function Join() {
                           </span>
                         </label>
                         <button
-                          className={`flex items-center gap-2 border-4 italic font-bold border-red-600 text-red-600 p-[9px] ${
+                          className={`sm:col-span-4 col-span-full flex items-center gap-2 border-4 italic font-bold border-red-600 text-red-600 p-[9px] ${
                             isOptionsVisible ? "bg-red-600 text-white" : ""
                           }`}
                           onClick={(e) => {
@@ -441,7 +435,7 @@ export default function Join() {
                     </div>
                   </div>
                   {isOptionsVisible && (
-                    <div className="space-y-3">
+                    <div className="space-y-3 col-span-full">
                       <div className="text-gray-600">
                         <h3 className="font-bold text-xs uppercase">content</h3>
                         <span className="text-[0.625rem] block">
@@ -505,7 +499,7 @@ export default function Join() {
                     </div>
                   )}
 
-                  <div className="mt-4">
+                  <div className="mt-4 col-span-full">
                     <p className="text-gray-600 text-[0.625rem]">
                       You can acess our preference centre at any time to opt out
                       of communications and control how [we] use your data. By

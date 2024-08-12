@@ -66,28 +66,30 @@ export default function HeadlinePost({
   }
 
   return (
-    <div
-      to={Source}
-      className="px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 h-full"
-    >
-      <div className="border-b border-gray-400 py-5 space-y-5 h-full">
-        <div>
-          <img src={Image} alt="" className="w-full" />
-        </div>
-        <div className={dark ? "text-black" : "text-white"}>
-          <time dateTime={time}>
-            <span
-              className={`text-xs ${dark ? "text-gray-600" : "text-pink-200"}`}
-            >
-              {elapsedTime}
-            </span>
-          </time>
-          <h2 className="space-x-2">
-            <span className="font-bold">{title}</span>
-            <span>{text}</span>
-          </h2>
+    <Link to={Source}>
+      <div
+        to={Source}
+        className="px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 h-full"
+      >
+        <div className="border-b border-gray-400 py-5 space-y-5 h-full">
+          <div>
+            <img src={Image} alt="" className="w-full" />
+          </div>
+          <div className={dark ? "text-black" : "text-white"}>
+            <time dateTime={time}>
+              <span
+                className={`text-xs ${dark ? "text-gray-600" : "text-pink-200"}`}
+              >
+                {elapsedTime}
+              </span>
+            </time>
+            <h2 className="space-x-2">
+              <span className="font-bold">{title}</span>
+              <span>{text}</span>
+            </h2>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

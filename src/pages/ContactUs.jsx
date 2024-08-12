@@ -153,7 +153,7 @@ export default function ContactUs() {
                         </span>
                         <div
                           className={`text-red-600 ${
-                            isNormalExpanded ? "" : "rotate-45"
+                            isMatchdayExpanded ? "" : "rotate-45"
                           }`}
                         >
                           <svg
