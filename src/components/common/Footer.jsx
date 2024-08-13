@@ -33,22 +33,30 @@ import Google from '../../assets/google.svg';
 export default function Footer() {
   return (
     <div className='-mt-10 text-white text-xs'>
-      <div className='bg-liverRed px-36 flex justify-between items-center py-20'>
-        <Link to={''}>
-          <img src={StandardChartered} alt="Standard Chartered" className='h-12' />
-        </Link>
-        <Link to={''}>
-          <img src={Nike} alt="Nike" className='h-12' />
-        </Link>
-        <Link to={''}>
-          <img src={AXA} alt="AXA" className='h-12' />
-        </Link>
-        <Link to={''}>
-          <img src={Expedia} alt="Expedia" className='h-8' />
-        </Link>
+      <div className='bg-liverRed grid grid-cols-12 gap-y-20 items-center place-items-center py-20'>
+        <div className='col-span-6 sm:col-span-3'>
+          <Link to={''}>
+            <img src={StandardChartered} alt="Standard Chartered" className='h-12 ' />
+          </Link>
+        </div>
+        <div className='col-span-6 sm:col-span-3'>
+          <Link to={''}>
+            <img src={Nike} alt="Nike" className='h-12' />
+          </Link>
+        </div>
+        <div className='col-span-6 sm:col-span-3'>
+          <Link to={''}>
+            <img src={AXA} alt="AXA" className='h-12' />
+          </Link>
+        </div>
+        <div className='col-span-6 sm:col-span-3'>
+          <Link to={''}>
+            <img src={Expedia} alt="Expedia" className='h-8' />
+          </Link>
+        </div>
       </div>
-      <div className='bg-red-700 py-24 space-y-24'>
-        <div className='px-28 flex justify-between items-center'>
+      <div className='bg-red-700 py-24'>
+        <div className='grid lg:grid-cols-8 md:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-24 justify-items-center'>
           <Link to={''}>
             <img src={Wasabi} alt="Wasabi" className='h-10' />
           </Link>
@@ -73,8 +81,6 @@ export default function Footer() {
           <Link to={''}>
             <img src={GPixel} alt="GPixel" className='h-7' />
           </Link>
-        </div>
-        <div className='px-48 flex justify-between items-center'>
           <Link to={''}>
             <img src={Orion} alt="Orion" className='h-4' />
           </Link>
@@ -99,7 +105,7 @@ export default function Footer() {
         </div>
       </div>
       <div className='bg-red-800 py-10 px-16 space-y-10'>
-        <div className='flex'>
+        <div className='grid sm:grid-cols-2 gap-10'>
           <div className='flex gap-10 font-semibold'>
             <ul className='space-y-2'>
               <li><Link to={''}>PRIVACY POLICY</Link></li>

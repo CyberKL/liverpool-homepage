@@ -5,13 +5,13 @@ import Menu from "./Menu";
 import LangMenu from "./LangMenu";
 import { Link } from "react-router-dom";
 
-import arrow from '../../assets/arrow.svg'
-import lfc from '../../assets/LFC.svg'
-import join from '../../assets/join.svg'
-import lang from '../../assets/lang.svg'
-import standardChartered from '../../assets/Standard_Chartered.svg'
+import arrow from "../../assets/arrow.svg";
+import lfc from "../../assets/LFC.svg";
+import join from "../../assets/join.svg";
+import lang from "../../assets/lang.svg";
+import standardChartered from "../../assets/Standard_Chartered.svg";
 
-export default function Navbar({ scrollValue=200 }) {
+export default function Navbar({ scrollValue = 200 }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [menuTransition, setMenuTransition] = useState(false);
@@ -102,10 +102,7 @@ export default function Navbar({ scrollValue=200 }) {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        navbarRef.current &&
-        !navbarRef.current.contains(event.target)
-      ) {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
         closeLangMenu();
       }
     };
@@ -128,7 +125,7 @@ export default function Navbar({ scrollValue=200 }) {
           onMouseEnter={() => clearTimeout(timeoutIdRef.current)}
         >
           <div className="flex p-3">
-            <Link to={''}>
+            <Link to={"/"}>
               <img
                 src={scrolled ? lfc : "liverpoolfc_crest.png"}
                 alt=""
@@ -198,13 +195,16 @@ export default function Navbar({ scrollValue=200 }) {
             <div className="border-r border-gray-400 pr-6">
               <ul className="flex gap-8">
                 <li>
-                  <Link to={'/join'} className="flex items-center gap-2 hover:opacity-80">
+                  <Link
+                    to={"/join"}
+                    className="flex items-center gap-2 hover:opacity-80"
+                  >
                     <img src={join} alt="" />
                     JOIN
                   </Link>
                 </li>
                 <li>
-                  <Link to={'/login'} className="hover:opacity-80">
+                  <Link to={"/login"} className="hover:opacity-80">
                     LOGIN
                   </Link>
                 </li>
@@ -228,8 +228,8 @@ export default function Navbar({ scrollValue=200 }) {
               </button>
             </div>
             <div>
-              <Link to={'https://www.sc.com/en/'}>
-                <img src={standardChartered} alt="" className="h-7 pr-6"/>
+              <Link to={"https://www.sc.com/en/"}>
+                <img src={standardChartered} alt="" className="h-7 pr-6" />
               </Link>
             </div>
           </div>
