@@ -25,13 +25,13 @@ export default function Home() {
   return (
     <div>
       <div className="flex justify-center bg-gray-100 px-10 py-5">
-        <Ad Ad={ad4} Height={"h-[6rem]"} />
+        <Ad Ad={ad4} Height={"sm:h-[6rem]"} />
       </div>
       <div className="bg-liverRed pt-12">
         <div className="px-20 z-40 sticky top-0 hidden xl:block">
           <Navbar />
         </div>
-        <div className="px-28 z-40 sticky top-0 block xl:hidden">
+        <div className="sm:px-28 px-4 z-40 sticky top-0 block xl:hidden">
           <SmallNav />
         </div>
         <div className="space-y-10 bg-white mt-10">
@@ -41,21 +41,21 @@ export default function Home() {
           <div>
             <Retail />
           </div>
-          <div className="flex justify-center bg-gray-100 p-16 gap-8">
+          <div className="grid sm:grid-cols-2 justify-center bg-gray-100 p-16 gap-8">
             <Ad Ad={ad} />
             <Ad Ad={boxAd} />
           </div>
           <div>
             <Fixtures />
           </div>
-          <div className="flex justify-center bg-gray-100 p-16">
+          <div className="flex justify-center bg-gray-100 sm:p-16">
             <Ad Ad={ad2} />
           </div>
           <div>
             <MoreNews />
           </div>
           <div>
-            <div className="flex justify-center bg-gray-100 p-16 gap-8">
+            <div className="grid sm:grid-cols-2 justify-center bg-gray-100 p-16 gap-8">
               <Ad Ad={ad3j} />
               <Ad Ad={ad3} />
             </div>

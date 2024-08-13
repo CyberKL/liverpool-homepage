@@ -6,7 +6,7 @@ import retail from '../../assets/Retail.png'
 
 export default function Headlines() {
   return (
-    <div className='px-20 pt-5 space-y-5'>
+    <div className='sm:px-20 pt-5 space-y-5'>
         <div className='flex text-white text-sm font-bold px-4'>
             <div className='px-3 py-2 bg-black bg-opacity-15 rounded-3xl'>
                 <span>HEADLINES</span>
@@ -17,12 +17,12 @@ export default function Headlines() {
             </Link>
         </div>
         <div className='space-y-16'>
-            <div className='grid grid-cols-3 gap-x-2'>
+            <div className='grid sm:grid-cols-3 gap-x-2'>
                 <HeadlinePost />
                 <HeadlinePost />
                 <HeadlinePost />
             </div>
-            <div className='grid grid-cols-3 gap-x-2'>
+            <div className='grid sm:grid-cols-3 gap-x-2'>
                 <Link to={''} className='p-3 pb-0 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200'>
                     <div className='p-4 space-y-5 bg-emerald-800 text-white'>
                         <div className='text-2xl'>

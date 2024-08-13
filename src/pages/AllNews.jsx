@@ -102,7 +102,7 @@ export default function AllNews() {
                         </div>
             )}
           </div>
-          <div className={`${scrolled ? "" : "absolute top-[60%]"} w-full px-[70px] block xl:hidden`}>
+          <div className={`${scrolled ? "" : "absolute top-[60%]"} w-full sm:px-[70px] px-5 block xl:hidden`}>
             <SmallNav />
             {!footerVisible && (
                           <div

@@ -33,7 +33,7 @@ export default function RetailSection({ Section }) {
     }
 
   return (
-    <div className='flex gap-10'>
+    <div className='grid sm:grid-cols-5 gap-10'>
         <RetailPost Image={image} Description={description} Price={price} OriginalPrice={originalPrice} />
         <RetailPost Image={image} Description={description} Price={price} OriginalPrice={originalPrice} />
         <RetailPost Image={image} Description={description} Price={price} OriginalPrice={originalPrice} />

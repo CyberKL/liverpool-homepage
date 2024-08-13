@@ -6,7 +6,7 @@ import community from '../../assets/community.webp'
 
 export default function Community() {
   return (
-    <div className='px-20 pt-5 space-y-5'>
+    <div className='sm:px-20 px-4 pt-5 space-y-5'>
         <div className='flex text-sm font-bold px-4'>
             <div className='px-3 py-2 text-white bg-black rounded-3xl'>
                 <span>CLUB AND COMMUNITY</span>
@@ -16,7 +16,7 @@ export default function Community() {
                 <img src={arrow} alt="" className='h-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
             </Link>
         </div>
-        <div className='flex gap-10'>
+        <div className='grid sm:grid-cols-3 gap-10'>
             <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} />
             <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} />
             <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} />

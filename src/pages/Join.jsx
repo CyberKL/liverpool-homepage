@@ -516,7 +516,7 @@ export default function Join() {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center">
+              <div className="flex sm:justify-center">
                 <div className="space-y-4 flex flex-col items-center w-min">
                   <ReCAPTCHA
                     sitekey={siteKey}

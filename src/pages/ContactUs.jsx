@@ -36,7 +36,7 @@ export default function ContactUs() {
           <div className="absolute top-[60%] w-full px-20 hidden xl:block">
             <Navbar scrollValue={100} />
           </div>
-          <div className="absolute top-[60%] w-full px-20 block xl:hidden">
+          <div className="absolute top-[60%] w-full sm:px-20 px-4 block xl:hidden">
             <SmallNav />
           </div>
         </div>

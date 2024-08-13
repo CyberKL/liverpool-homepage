@@ -33,7 +33,7 @@ export default function Retail() {
 
 
   return (
-    <div className='space-y-5 px-20'>
+    <div className='space-y-5 sm:px-20 px-4'>
         <div className='py-2 px-5 bg-black text-sm font-bold text-white w-fit rounded-3xl'>
             <span>LFC RETAIL</span>
         </div>
@@ -46,7 +46,7 @@ export default function Retail() {
         </div>
         <RetailSection Section={activeSection} />
         <div className='flex justify-center items-center'>
-            <button className='flex items-center px-5 pb-4 w-[18%] bg-yellow-300 h-16 font-bold hover:bg-opacity-95 group'>
+            <button className='flex items-center px-5 pb-4 sm:w-[18%] bg-yellow-300 h-16 font-bold hover:bg-opacity-95 group'>
                 VISIT THE LFC STORE NOW
                 <img src={arrow} alt="" className='h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
             </button>
