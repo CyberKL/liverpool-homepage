@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
+import SmallNav from "../components/common/SmallNav";
 
 import usePageTitle from "../hooks/usePageTitle";
 
@@ -32,8 +33,11 @@ export default function ContactUs() {
       <header className="sticky top-0 z-10">
         <div className="relative">
           {!scrolled && <div className="bg-red-700 h-20"></div>}
-          <div className="absolute top-[60%] w-full px-20">
+          <div className="absolute top-[60%] w-full px-20 hidden xl:block">
             <Navbar scrollValue={100} />
+          </div>
+          <div className="absolute top-[60%] w-full px-20 block xl:hidden">
+            <SmallNav />
           </div>
         </div>
       </header>

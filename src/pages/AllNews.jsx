@@ -7,6 +7,7 @@ import HeadlinePost from "../components/common/HeadlinePost";
 
 import bigImg from "../assets/bigImg.webp"
 import arrow from "../assets/arrow.svg"
+import SmallNav from "../components/common/SmallNav";
 
 export default function AllNews() {
   usePageTitle("Latest News - Liverpool FC");
@@ -56,7 +57,7 @@ export default function AllNews() {
         <div className="relative">
           {!scrolled && <div className="bg-red-700 h-16"></div>}
           <div
-            className={`${scrolled ? "" : "absolute top-[60%]"} w-full px-[70px]`}
+            className={`${scrolled ? "" : "absolute top-[60%]"} w-full px-[70px] hidden xl:block`}
           >
             <Navbar scrollValue={100} />
             {!footerVisible && (
@@ -71,6 +72,50 @@ export default function AllNews() {
                             </span>
                           </div>
                           <div className={`text-gray-600  ${filtersVisible ? 'bg-white absolute right-20 top-20 p-5 pl-20 shadow-lg' : ''}`}>
+                            <div className={`flex items-center gap-1 font-bold ${filtersVisible ? 'text-red-600' : ''}`} onClick={() => setFiltersVisible(!filtersVisible)}>
+                              <button className="uppercase text-sm">filter by topic</button>
+                              <svg
+                                viewBox="0 0 15 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className={`h-4 ${filtersVisible ? '-rotate-90' : 'rotate-90'}`}
+                              >
+                                <path
+                                  d="M5 3l5 5-5 5"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                ></path>
+                              </svg>
+                            </div>
+                            {filtersVisible && (
+                              <div className="flex flex-col items-end gap-2 mt-2 mb-4">
+                                <button className="cursor-pointer opacity-40">All news</button>
+                                <button className="hover:text-liverRed">Men</button>
+                                <button className="hover:text-liverRed">Women</button>
+                                <button className="hover:text-liverRed">Academy</button>
+                                <button className="hover:text-liverRed">Club</button>
+                                <button className="hover:text-liverRed">Media Watch</button>
+                                <button className="hover:text-liverRed">Tickets</button>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+            )}
+          </div>
+          <div className={`${scrolled ? "" : "absolute top-[60%]"} w-full px-[70px] block xl:hidden`}>
+            <SmallNav />
+            {!footerVisible && (
+                          <div
+                          className={`flex justify-between ${
+                            scrolled ? "py-3" : "pt-10 pb-5"
+                          } px-5 bg-white border-b border-gray-300`}
+                        >
+                          <div className="px-3 py-1 bg-black rounded-3xl">
+                            <span className="uppercase text-white text-sm font-bold">
+                              all news
+                            </span>
+                          </div>
+                          <div className={`lg:block hidden text-gray-600  ${filtersVisible ? 'bg-white absolute right-20 top-20 p-5 pl-20 shadow-lg' : ''}`}>
                             <div className={`flex items-center gap-1 font-bold ${filtersVisible ? 'text-red-600' : ''}`} onClick={() => setFiltersVisible(!filtersVisible)}>
                               <button className="uppercase text-sm">filter by topic</button>
                               <svg

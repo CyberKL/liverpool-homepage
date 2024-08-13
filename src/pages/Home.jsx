@@ -9,6 +9,7 @@ import Community from "../components/layout/Community";
 import Trophies from "../components/layout/Trophies";
 import Memory from "../components/layout/Memory";
 import Footer from "../components/common/Footer";
+import SmallNav from "../components/common/SmallNav";
 import usePageTitle from "../hooks/usePageTitle";
 
 import ad4 from "../assets/ad4.gif";
@@ -27,8 +28,11 @@ export default function Home() {
         <Ad Ad={ad4} Height={"h-[6rem]"} />
       </div>
       <div className="bg-liverRed pt-12">
-        <div className="px-20 z-40 sticky top-0">
+        <div className="px-20 z-40 sticky top-0 hidden xl:block">
           <Navbar />
+        </div>
+        <div className="px-28 z-40 sticky top-0 block xl:hidden">
+          <SmallNav />
         </div>
         <div className="space-y-10 bg-white mt-10">
           <div className="bg-liverRed pb-32">
