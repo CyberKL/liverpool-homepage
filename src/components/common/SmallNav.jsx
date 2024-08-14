@@ -219,8 +219,10 @@ export default function SmallNav() {
                 <button onClick={() => setMenuVisible(!menuVisible)}>
                     <svg className='h-4' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 14"><path fill="#fff" d="M0 0h20v2H0V0zM0 12h20v2H0v-2zM0 6h20v2H0V6z"></path></svg>
                 </button>
-
-                <img src={lfc} alt="" className='h-7' />
+                
+                <Link to={'/'}>
+                    <img src={lfc} alt="" className='h-7' />
+                </Link>
 
                 <img src={standardChartered} alt="" className='h-7' />
 
