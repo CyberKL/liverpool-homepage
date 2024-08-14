@@ -16,10 +16,10 @@ export default function Community() {
                 <img src={arrow} alt="" className='h-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
             </Link>
         </div>
-        <div className='grid sm:grid-cols-3 gap-10'>
-            <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} />
-            <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} />
-            <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} />
+        <div className='flex gap-10 overflow-x-scroll'>
+            <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} Width='w-screen' />
+            <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} Width='w-screen' />
+            <HeadlinePost dark={true} Image={community} title='Feature' text='We Love You Liverpool: Meet Official LFC Supporters Club... Philadelphia' time={new Date('2024-07-31')} Width='w-screen' />
         </div>
     </div>
   )

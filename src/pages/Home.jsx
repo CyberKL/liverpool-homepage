@@ -41,7 +41,7 @@ export default function Home() {
           <div>
             <Retail />
           </div>
-          <div className="grid sm:grid-cols-2 justify-center bg-gray-100 p-16 gap-8">
+          <div className="grid sm:grid-cols-2 place-items-center bg-gray-100 p-16 gap-8">
             <Ad Ad={ad} />
             <Ad Ad={boxAd} />
           </div>
@@ -55,7 +55,7 @@ export default function Home() {
             <MoreNews />
           </div>
           <div>
-            <div className="grid sm:grid-cols-2 justify-center bg-gray-100 p-16 gap-8">
+            <div className="grid sm:grid-cols-2 place-items-center bg-gray-100 p-16 gap-8">
               <Ad Ad={ad3j} />
               <Ad Ad={ad3} />
             </div>

@@ -191,10 +191,12 @@ export default function Menu({ Section }) {
                 </p>
               </div>
               <div>
-                <button className="flex items-center px-5 pb-4 bg-black w-full h-16 hover:bg-opacity-60">
-                  REGISTER NOW
-                  <img src={arrow} alt="" className="filter invert h-4" />
-                </button>
+                <Link to={'/join'}>
+                  <div className="flex items-center px-5 pb-4 bg-black w-full h-16 hover:bg-opacity-60">
+                    REGISTER NOW
+                    <img src={arrow} alt="" className="filter invert h-4" />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

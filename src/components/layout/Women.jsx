@@ -15,10 +15,10 @@ export default function Women() {
                 <img src="arrow.svg" alt="" className='h-3 filter invert transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
             </Link>
         </div>
-        <div className='grid sm:grid-cols-3 gap-10'>
-            <HeadlinePost Image={lfcw} title='News' text='First game for LFC Women at St Helens to be pre-season Merseyside derby' time={new Date('2024-08-02')} />
-            <HeadlinePost Image={lfcw} title='News' text='First game for LFC Women at St Helens to be pre-season Merseyside derby' time={new Date('2024-08-02')} />
-            <HeadlinePost Image={lfcw} title='News' text='First game for LFC Women at St Helens to be pre-season Merseyside derby' time={new Date('2024-08-02')} />
+        <div className='flex gap-10 overflow-x-scroll'>
+            <HeadlinePost Image={lfcw} title='News' text='First game for LFC Women at St Helens to be pre-season Merseyside derby' time={new Date('2024-08-02')} Width='w-screen' />
+            <HeadlinePost Image={lfcw} title='News' text='First game for LFC Women at St Helens to be pre-season Merseyside derby' time={new Date('2024-08-02')} Width='w-screen' />
+            <HeadlinePost Image={lfcw} title='News' text='First game for LFC Women at St Helens to be pre-season Merseyside derby' time={new Date('2024-08-02')} Width='w-screen' />
         </div>
     </div>
   )

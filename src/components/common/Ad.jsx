@@ -4,7 +4,7 @@ import React from 'react'
 export default function 
 ({ Ad, Height }) {
   return (
-    <Link to={''} className={`overflow-hidden bg-gray-50 ${Height}`}>
+    <Link to={''} className={`overflow-hidden bg-gray-50 ${Height} w-fit`}>
       <img src={Ad} alt="" className='object-cover'/>
     </Link>
   )

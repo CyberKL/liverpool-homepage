@@ -71,8 +71,8 @@ export default function ContactUs() {
           </div>
 
           <div className="py-[60px] space-y-[60px]">
-            <div className="flex flex-col items-center">
-              <div className="space-y-[30px] max-w-2xl">
+            <div className="grid place-items-center">
+              <div className="space-y-[30px] md:max-w-2xl sm:max-w-lg sm:px-0 px-10">
                 <p className="font-bold text-gray-600 text-lg">
                   If you need help with any Club services, including Ticketing,
                   LFC Official Membership and the Official Liverpool FC Store,

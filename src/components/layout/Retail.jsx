@@ -38,7 +38,7 @@ export default function Retail() {
             <span>LFC RETAIL</span>
         </div>
         <div className=''>
-            <ul className='flex gap-7 border-b border-gray-200 font-bold text-sm'>
+            <ul className='flex gap-7 border-b border-gray-200 font-bold text-sm overflow-x-scroll text-nowrap'>
                 <li><button id='Away' className={`py-4 ${activeSection === 'Away' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>NEW: 24/25 AWAY KIT</button></li>
                 <li><button id='Training' className={`py-4 ${activeSection === 'Training' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>NEW: 24/25 TRAINING</button></li>
                 <li><button id='Like' className={`py-4 ${activeSection === 'Like' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>YOU MAY LIKE</button></li>
@@ -46,7 +46,7 @@ export default function Retail() {
         </div>
         <RetailSection Section={activeSection} />
         <div className='flex justify-center items-center'>
-            <button className='flex items-center px-5 pb-4 sm:w-[18%] bg-yellow-300 h-16 font-bold hover:bg-opacity-95 group'>
+            <button className='flex items-center px-5 pb-4 lg:w-[18%] bg-yellow-300 h-16 font-bold hover:bg-opacity-95 group'>
                 VISIT THE LFC STORE NOW
                 <img src={arrow} alt="" className='h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
             </button>

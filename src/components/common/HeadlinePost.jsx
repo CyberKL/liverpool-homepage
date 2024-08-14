@@ -9,6 +9,7 @@ export default function HeadlinePost({
   text = "USA diary: Sightseeing, training with a difference and a debate about ironing",
   time = new Date("2024-08-03T03:24:00"),
   Source = "",
+  Width = "",
 }) {
   const difference = Date.now() - time;
 
@@ -69,7 +70,7 @@ export default function HeadlinePost({
     <Link to={Source}>
       <div
         to={Source}
-        className="px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 h-full"
+        className={`px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 h-full sm:w-full ${Width}`}
       >
         <div className="border-b border-gray-400 py-5 space-y-5 h-full">
           <div>
