@@ -74,7 +74,7 @@ export default function HeadlinePost({
       >
         <div className="border-b border-gray-400 py-5 space-y-5 h-full">
           <div>
-            <img src={Image} alt="" className="w-full" />
+            <img src={Image} alt="" className="w-full h-[280px]" />
           </div>
           <div className={dark ? "text-black" : "text-white"}>
             <time dateTime={time}>

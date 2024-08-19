@@ -3,8 +3,10 @@ import HeadlinePost from '../common/HeadlinePost'
 import { Link } from 'react-router-dom'
 import arrow from '../../assets/arrow.svg'
 import retail from '../../assets/Retail.png'
+import useFetchNews from '../../hooks/useFetchNews'
 
 export default function Headlines() {
+    const { articles } = useFetchNews(5)
   return (
     <div className='sm:px-20 pt-5 space-y-5'>
         <div className='flex text-white text-sm font-bold px-4'>
@@ -18,9 +20,9 @@ export default function Headlines() {
         </div>
         <div className='space-y-16'>
             <div className='grid sm:grid-cols-3 gap-x-2'>
-                <HeadlinePost />
-                <HeadlinePost />
-                <HeadlinePost />
+                {articles.slice(0,3).map((article, index) => (
+                    <HeadlinePost title={article.title} text={article.description} time={new Date(article.publishedAt)} Image={article.urlToImage} key={index} Source={article.url} />
+                ))}
             </div>
             <div className='grid sm:grid-cols-3 gap-x-2'>
                 <Link to={''} className='p-3 pb-0 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200'>
@@ -40,8 +42,9 @@ export default function Headlines() {
                         </div>
                     </div>
                 </Link>
-                <HeadlinePost />
-                <HeadlinePost />
+                {articles.slice(3,5).map((article, index) => (
+                    <HeadlinePost title={article.title} text={article.description} time={article.publishedAt} Image={article.urlToImage} key={index} Source={article.url} />
+                ))}
             </div>
         </div>
     </div>
