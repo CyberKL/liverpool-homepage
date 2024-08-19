@@ -14,7 +14,6 @@ npm install
 ### Obtaining a key
 First you need to obatin an api key by registering at `https://newsapi.org/`
 
-
 ### Setting the key env variable
 
 #### For Linux/MacOS or Git Bash
@@ -31,7 +30,6 @@ set VITE_NEWS_API_KEY=your_api_key
 ``` PowerShell
 $env:VITE_NEWS_API_KEY=your_api_key
 ```
-
 
 ## Running the project
 
