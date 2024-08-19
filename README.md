@@ -10,9 +10,12 @@ npm install
 ```
 
 ## Setting up the news api key
+
+### Obtaining a key
 First you need to obatin an api key by registering at `https://newsapi.org/`
 
-### After getting your api key, you should set the env variable for the key
+
+### Setting the key env variable
 
 #### For Windows
 ``` bash
