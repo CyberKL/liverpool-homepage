@@ -17,12 +17,12 @@ First you need to obatin an api key by registering at `https://newsapi.org/`
 
 ### Setting the key env variable
 
-#### For Windows
+#### For Windows cmd
 ``` bash
 set VITE_NEWS_API_KEY=your_api_key
 ```
 
-#### For Linux/MacOS
+#### For Linux/MacOS or Git Bash
 ``` bash
 export VITE_NEWS_API_KEY=your_api_key
 ```
