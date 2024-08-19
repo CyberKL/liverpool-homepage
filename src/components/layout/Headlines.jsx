@@ -43,7 +43,7 @@ export default function Headlines() {
                     </div>
                 </Link>
                 {articles.slice(3,5).map((article, index) => (
-                    <HeadlinePost title={article.title} text={article.description} time={article.publishedAt} Image={article.urlToImage} key={index} Source={article.url} />
+                    <HeadlinePost title={article.title} text={article.description} time={new Date(article.publishedAt)} Image={article.urlToImage} key={index} Source={article.url} />
                 ))}
             </div>
         </div>
