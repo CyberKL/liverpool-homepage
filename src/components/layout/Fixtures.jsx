@@ -7,8 +7,8 @@ import downArrow from '../../assets/down-arrow.svg'
 export default function Fixtures() {
   return (
     <div className='sm:px-20 px-4 space-y-10'>
-      <div className='grid sm:grid-cols-3 gap-4'>
-        <div className='py-2 px-3 bg-black text-sm font-bold text-white rounded-3xl'>
+      <div className='grid sm:grid-cols-2 gap-4'>
+        <div className='py-2 px-3 bg-black text-sm font-bold text-white rounded-3xl w-fit'>
           <span>PRE-SEASON</span>
         </div>
         <div className='ml-auto flex gap-8 items-center'>

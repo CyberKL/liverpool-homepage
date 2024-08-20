@@ -10,6 +10,7 @@ export default function HeadlinePost({
   time = new Date("2024-08-03T03:24:00"),
   Source = "",
   Width = "",
+  ShowImage = true,
 }) {
   const difference = Date.now() - time;
 
@@ -72,18 +73,20 @@ export default function HeadlinePost({
         to={Source}
         className={`px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 h-full sm:w-full ${Width}`}
       >
-        <div className="border-b border-gray-400 py-5 space-y-5 h-full">
-          <div>
-            <img src={Image} alt="" className="w-full h-[280px]" />
-          </div>
+        <div className={`${ShowImage ? 'border-b py-5' : 'pb-5'} border-gray-400 space-y-5 h-full`}>
+          {ShowImage && (
+            <div>
+              <img src={Image} alt="" className="w-full h-[280px]" />
+            </div>
+          )}
           <div className={dark ? "text-black" : "text-white"}>
-            <time dateTime={time}>
+            {ShowImage && (<time dateTime={time}>
               <span
                 className={`text-xs ${dark ? "text-gray-600" : "text-pink-200"}`}
               >
                 {elapsedTime}
               </span>
-            </time>
+            </time>)}
             <h2 className="space-x-2">
               <span className="font-bold">{title}</span>
               <span>{text}</span>
