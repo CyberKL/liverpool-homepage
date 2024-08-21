@@ -9,7 +9,7 @@ const useFetchNews = (
 ) => {
   const [articles, setArticles] = useState([]);
   const [visibleCount, setVisibleCount] = useState(initialCount);
-  const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+  const apiKey = process.env.NEWS_API_KEY;
 
   useEffect(() => {
     const today = new Date();
