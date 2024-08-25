@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import usePageTitle from "../hooks/usePageTitle";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useForm } from "react-hook-form";
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
@@ -8,23 +11,40 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   usePageTitle("Liverpool FC - Account");
+
   const siteKey = "6LcXDiAqAAAAAG-wafGhvJP5R5Yic8cxFBYnXy7P";
+
   const [capVal, setCapVal] = useState(null);
   const [passVisible, setPassVisible] = useState(false);
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [email, setEmail] = useState("");
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPassFocused, setIsPassFocused] = useState(false);
-  const [password, setPassword] = useState("");
 
+  // Validation
+  const schema = yup.object().shape({
+    email: yup.string().email('Invalid email').required(),
+    password: yup.string().required()
+  })
+  
+  const { register, handleSubmit, formState: { errors }, watch } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'onChange'
+  })
+
+  const watchEmail = watch("email", "");
+  const watchPassword = watch("password", "");
+
+  const onSubmit = (data) => {
+    console.log(data);
+  }
+
+  // Reveal password functionality
   const handlePassClick = (e) => {
     e.preventDefault();
-    passVisible ? setPassVisible(false) : setPassVisible(true);
+    setPassVisible((prev) => !prev);
     const diameter = Math.max(
       e.currentTarget.clientWidth,
       e.currentTarget.clientHeight
     );
-    const radius = diameter / 2;
     const ripple = document.createElement("span");
     ripple.style.width = ripple.style.height = `${diameter}px`;
 
@@ -32,16 +52,6 @@ export default function Login() {
       "absolute bg-gray-200 bg-opacity-60 left-0 top-0 rounded-full animate-ripple";
     e.currentTarget.appendChild(ripple);
     setTimeout(() => ripple.remove(), 400);
-  };
-
-  const handlePassChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    emailRegex.test(email) ? setIsValidEmail(true) : setIsValidEmail(false);
   };
 
   return (
@@ -78,14 +88,16 @@ export default function Login() {
             </Link>
           </p>
         </div>
+
+        {/* Form */}
         <div className="bg-white flex justify-center items-center pt-16 pb-32">
-          <form className="flex flex-col items-center gap-3">
+          <form className="flex flex-col items-center gap-3" onSubmit={handleSubmit(onSubmit)}>
             <div className="space-y-10 w-full mb-2">
               <div className="relative w-full">
                 <label
                   htmlFor="email"
                   className={`text-xs absolute left-2 -top-2 bg-white px-1 ${
-                    (email && !isValidEmail) || isEmailFocused
+                    (watchEmail && errors.email) || isEmailFocused
                       ? "text-red-600"
                       : "text-gray-600"
                   }`}
@@ -96,18 +108,16 @@ export default function Login() {
                   type="email"
                   name="email"
                   id="email"
-                  value={email}
-                  onChange={handleEmailChange}
+                  {...register("email")}
                   onFocus={() => setIsEmailFocused(true)}
                   onBlur={() => setIsEmailFocused(false)}
                   className={`border border-gray-300 w-full p-2 hover:border-black ${
-                    email && !isValidEmail
+                    watchEmail && errors.email
                       ? "border-red-600 hover:border-red-600"
                       : ""
                   } rounded-md focus:hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600`}
-                  required
                 />
-                {isValidEmail && (
+                {watchEmail && !errors.email && (
                   <svg
                     className="h-5 absolute right-3 top-2.5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +130,7 @@ export default function Login() {
                     ></path>
                   </svg>
                 )}
-                {email && !isValidEmail && (
+                {watchEmail && errors.email && (
                   <svg
                     className="h-5 absolute right-3 top-2.5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -133,9 +143,9 @@ export default function Login() {
                     ></path>
                   </svg>
                 )}
-                {email && !isValidEmail && (
+                {watchEmail && errors.email && (
                   <p className="text-red-600 text-[0.6rem] px-[14px] pt-1">
-                    Invalid Email
+                    {errors.email?.message}
                   </p>
                 )}
               </div>
@@ -152,12 +162,10 @@ export default function Login() {
                   type={passVisible ? "text" : "password"}
                   name="password"
                   id="password"
-                  value={password}
-                  onChange={handlePassChange}
+                  {...register("password")}
                   onFocus={() => setIsPassFocused(true)}
                   onBlur={() => setIsPassFocused(false)}
                   className="w-full p-2 border border-gray-300 hover:border-black rounded-md focus:hover:border-transparent focus:outline-none focus:ring-red-600 focus:ring-2"
-                  required
                 />
                 <button
                   className="absolute right-3 top-2 rounded-full py-[2x] overflow-hidden hover:bg-gray-100 hover:bg-opacity-70"
@@ -187,7 +195,7 @@ export default function Login() {
               <ReCAPTCHA sitekey={siteKey} onChange={(val) => setCapVal(val)} />
               <button
                 className="bg-liverRed text-white w-full italic font-bold h-10 disabled:bg-gray-200 disabled:text-gray-400"
-                disabled={!isValidEmail || !password || !capVal}
+                disabled={errors.email || errors.password || !capVal}
               >
                 Login
               </button>
