@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useFormContext, Controller } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 export default function FormField({
   type = "text",
@@ -12,17 +12,20 @@ export default function FormField({
   const [isFocused, setIsFocused] = useState(false);
   const {
     register,
-    formState: { errors, dirtyFields },
+    formState: { errors },
     watch,
     setValue,
   } = useFormContext();
   const watchElement = watch(name, defaultValue);
-  const conPass = name === "conPassword" ? dirtyFields["password"] : false;
-  const names = name === "fname" || name === 'lname';
+  const names = name === "fname" || name === "lname";
 
   const onInputChange = (e) => {
-    if(handleChange) handleChange(e);
-    setValue(name, e.target.value, { shouldDirty: true, shouldValidate: true, shouldTouch: true });
+    if (handleChange) handleChange(e);
+    setValue(name, e.target.value, {
+      shouldDirty: true,
+      shouldValidate: true,
+      shouldTouch: true,
+    });
   };
 
   return (
@@ -30,7 +33,7 @@ export default function FormField({
       <label
         htmlFor={name}
         className={`text-xs absolute left-7 top-3  bg-white px-1 ${
-          (errors[name] && (watchElement || names)) || conPass || isFocused
+          (errors[name] && (watchElement || names)) || isFocused
             ? "text-red-600"
             : "text-gray-600"
         }`}
@@ -47,7 +50,7 @@ export default function FormField({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         className={`border text-gray-600 border-gray-300 w-full px-[14px] py-[10.5px] text-sm hover:border-black ${
-          (errors[name] && (watchElement || names)) || conPass
+          (errors[name] && (watchElement || names))
             ? "border-red-600 hover:border-red-600"
             : ""
         } rounded-md focus:hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600`}

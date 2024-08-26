@@ -32,8 +32,24 @@ export default function Login() {
 
   const watchEmail = watch("email", "");
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("http://localhost:3000/users");
+      const users = await response.json();
+      
+      const user = users.find(
+        (user) => user.email === data.email && user.password === data.password
+      );
+
+      if (user) {
+        alert("Login successful!");
+        // Redirect or handle successful login
+      } else {
+        alert("Invalid email or password.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   }
 
   // Reveal password functionality
@@ -80,7 +96,7 @@ export default function Login() {
             No account? Unlock new, exciting and exclusive benefits all in one
             place. Join MyLFC, your FREE, Official LFC Account.{" "}
             <Link
-              to={"join"}
+              to={"/join"}
               className="text-liverRed underline italic font-bold"
             >
               Register Now

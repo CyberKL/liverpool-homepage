@@ -50,17 +50,10 @@ export default function Join() {
         "Password has to contain at least one lowercase character"
       )
       .matches(/\W/, "Password has to contain at least one special character")
-      .test(
-        "passwords-match",
-        "Password and password confirmation have to match",
-        function (value) {
-          return value === this.parent.conPassword;
-        }
-      )
       .required(),
     conPassword: yup
       .string()
-      .oneOf([yup.ref("password"), null], "")
+      .oneOf([yup.ref("password"), null], "Password and password confirmation have to match")
       .required(),
     gender: yup.string(),
     country: yup.string().required("This is a required field"),
@@ -90,9 +83,40 @@ export default function Join() {
     setValue,
     getValues,
   } = methods;
+  useEffect(() => {
+    console.log(methods.formState.errors);
+  }, [methods.formState.errors])
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const user = {
+      "fname": data.fname,
+      "lname": data.lname,
+      "email": data.email,
+      "dob": data.dob,
+      "password": data.password,
+      "gender": data.gender,
+      "country": data.country,
+      "options": data.options,
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+
+      if (response.ok) {
+        alert('Registration successful!');
+        // Redirect or clear form as needed
+      } else {
+        alert('Registration failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   // Countries api
@@ -158,7 +182,7 @@ export default function Join() {
   // Handling radio buttons
   const handleRadioChange = () => {
     Object.keys(getValues("options")).forEach((key) => {
-      setValue(`options.${key}`, selectedRadio === "yes");
+      setValue(`options.${key}`, selectedRadio === "yes", { shouldDirty: true, shouldTouch: true, shouldValidate: true });
     });
   };
 
@@ -493,7 +517,7 @@ export default function Join() {
                       <p className="text-xs">
                         Already have an account?<span> </span>
                         <Link
-                          to={""}
+                          to={"/login"}
                           className="text-liverRed font-bold underline italic"
                         >
                           Login
