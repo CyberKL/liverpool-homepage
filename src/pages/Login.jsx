@@ -31,7 +31,6 @@ export default function Login() {
   })
 
   const watchEmail = watch("email", "");
-  const watchPassword = watch("password", "");
 
   const onSubmit = (data) => {
     console.log(data);

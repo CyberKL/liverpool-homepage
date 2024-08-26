@@ -1,14 +1,36 @@
 import React, { useState } from "react";
+import { useFormContext, Controller } from "react-hook-form";
 
-export default function FormField({ type='text', name, label, value, handleChange, isValid, error, useIcons=true }) {
-    const [isFocused, setIsFocused] = useState(false);
-    const showError = name === 'conPassword' ? !isValid : !isValid && value ;
+export default function FormField({
+  type = "text",
+  name,
+  label,
+  useIcons = true,
+  defaultValue = "",
+  handleChange = null,
+}) {
+  const [isFocused, setIsFocused] = useState(false);
+  const {
+    register,
+    formState: { errors, dirtyFields },
+    watch,
+    setValue,
+  } = useFormContext();
+  const watchElement = watch(name, defaultValue);
+  const conPass = name === "conPassword" ? dirtyFields["password"] : false;
+  const names = name === "fname" || name === 'lname';
+
+  const onInputChange = (e) => {
+    if(handleChange) handleChange(e);
+    setValue(name, e.target.value, { shouldDirty: true, shouldValidate: true, shouldTouch: true });
+  };
+
   return (
     <div className="relative p-5 w-full sm:col-span-6 col-span-full">
       <label
         htmlFor={name}
         className={`text-xs absolute left-7 top-3  bg-white px-1 ${
-          showError || isFocused
+          (errors[name] && (watchElement || names)) || conPass || isFocused
             ? "text-red-600"
             : "text-gray-600"
         }`}
@@ -18,17 +40,19 @@ export default function FormField({ type='text', name, label, value, handleChang
       <input
         type={type}
         name={name}
+        defaultValue={defaultValue}
         id={name}
-        value={value}
-        onChange={handleChange}
+        {...register(name)}
+        onChange={onInputChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         className={`border text-gray-600 border-gray-300 w-full px-[14px] py-[10.5px] text-sm hover:border-black ${
-           showError ? "border-red-600 hover:border-red-600" : ""
+          (errors[name] && (watchElement || names)) || conPass
+            ? "border-red-600 hover:border-red-600"
+            : ""
         } rounded-md focus:hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600`}
-        required
       />
-      {isValid && useIcons && (
+      {watchElement && !errors[name] && useIcons && (
         <svg
           className="h-5 absolute right-7 top-8"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +65,7 @@ export default function FormField({ type='text', name, label, value, handleChang
           ></path>
         </svg>
       )}
-      {showError && useIcons && (
+      {errors[name] && (watchElement || names) && useIcons && (
         <svg
           className="h-5 absolute right-7 top-8"
           xmlns="http://www.w3.org/2000/svg"
@@ -54,10 +78,26 @@ export default function FormField({ type='text', name, label, value, handleChang
           ></path>
         </svg>
       )}
-      {showError && (
+      {errors[name] && (watchElement || names) && (
         <div className="flex flex-col">
-          {error.map((e, index) => 
-            e && (<span key={index} className="text-red-600 text-nowrap text-[0.625rem] px-[14px] pt-1">{e}</span>)
+          {Object.keys(errors[name].types).map((key, index) =>
+            Array.isArray(errors[name].types[key]) ? (
+              errors[name].types[key].map((message, index) => (
+                <span
+                  key={index}
+                  className="text-red-600 text-nowrap text-[0.625rem] px-[14px] pt-1"
+                >
+                  {message}
+                </span>
+              ))
+            ) : (
+              <span
+                key={index}
+                className="text-red-600 text-nowrap text-[0.625rem] px-[14px] pt-1"
+              >
+                {errors[name].types[key]}
+              </span>
+            )
           )}
         </div>
       )}
