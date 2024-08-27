@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import usePageTitle from "../hooks/usePageTitle";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm, FormProvider } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import joinSchema from "../validations/joinSchema";
 
 import FormField from "../components/common/FormField";
 import OptionBox from "../components/common/OptionBox";
@@ -24,55 +24,9 @@ export default function Join() {
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
 
   // Validation
-  const schema = yup.object().shape({
-    fname: yup.string().required("This is a required field"),
-    lname: yup.string().required("This is a required field"),
-    email: yup.string().email("Invalid email").required(),
-    dob: yup
-      .date()
-      .typeError("Invalid Date Format")
-      .max(new Date(), "Date of birth cannot be in the future")
-      .min(
-        new Date("1900-01-01"),
-        "Date of birth cannot be that far in the past"
-      ),
-    password: yup
-      .string()
-      .min(8, "Password has to be between 8 and 30 characters long")
-      .max(30, "Password has to be between 8 and 30 characters long")
-      .matches(/\d/, "Password has to contain at least one number")
-      .matches(
-        /[A-Z]/,
-        "Password has to contain at least one uppercase character"
-      )
-      .matches(
-        /[a-z]/,
-        "Password has to contain at least one lowercase character"
-      )
-      .matches(/\W/, "Password has to contain at least one special character")
-      .required(),
-    conPassword: yup
-      .string()
-      .oneOf([yup.ref("password"), null], "Password and password confirmation have to match")
-      .required(),
-    gender: yup.string(),
-    country: yup.string().required("This is a required field"),
-    options: yup.object().shape({
-      offers: yup.boolean(),
-      newsletters: yup.boolean(),
-      foundation: yup.boolean(),
-      partners: yup.boolean(),
-      email: yup.boolean(),
-      sms: yup.boolean(),
-      mail: yup.boolean(),
-      telephone: yup.boolean(),
-      other: yup.boolean(),
-    }),
-  });
-
   const methods = useForm({
     criteriaMode: "all",
-    resolver: yupResolver(schema, { abortEarly: false }),
+    resolver: yupResolver(joinSchema, { abortEarly: false }),
     mode: "onChange",
   });
 
@@ -85,19 +39,19 @@ export default function Join() {
   } = methods;
   useEffect(() => {
     console.log(methods.formState.errors);
-  }, [methods.formState.errors])
+  }, [methods.formState.errors]);
 
   const onSubmit = async (data) => {
     const user = {
-      "fname": data.fname,
-      "lname": data.lname,
-      "email": data.email,
-      "dob": data.dob,
-      "password": data.password,
-      "gender": data.gender,
-      "country": data.country,
-      "options": data.options,
-    }
+      fname: data.fname,
+      lname: data.lname,
+      email: data.email,
+      dob: data.dob,
+      password: data.password,
+      gender: data.gender,
+      country: data.country,
+      options: data.options,
+    };
 
     try {
       const response = await fetch("http://localhost:3000/users", {
@@ -106,16 +60,16 @@ export default function Join() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
-      })
+      });
 
       if (response.ok) {
-        alert('Registration successful!');
+        alert("Registration successful!");
         // Redirect or clear form as needed
       } else {
-        alert('Registration failed');
+        alert("Registration failed");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
@@ -182,7 +136,11 @@ export default function Join() {
   // Handling radio buttons
   const handleRadioChange = () => {
     Object.keys(getValues("options")).forEach((key) => {
-      setValue(`options.${key}`, selectedRadio === "yes", { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+      setValue(`options.${key}`, selectedRadio === "yes", {
+        shouldDirty: true,
+        shouldTouch: true,
+        shouldValidate: true,
+      });
     });
   };
 

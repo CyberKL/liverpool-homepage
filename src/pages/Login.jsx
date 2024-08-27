@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import usePageTitle from "../hooks/usePageTitle";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup'
+import { yupResolver } from "@hookform/resolvers/yup";
+import loginSchema from "../validations/loginSchema";
 
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
@@ -20,15 +20,15 @@ export default function Login() {
   const [isPassFocused, setIsPassFocused] = useState(false);
 
   // Validation
-  const schema = yup.object().shape({
-    email: yup.string().email('Invalid email').required(),
-    password: yup.string().required()
-  })
-  
-  const { register, handleSubmit, formState: { errors }, watch } = useForm({
-    resolver: yupResolver(schema),
-    mode: 'onChange'
-  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm({
+    resolver: yupResolver(loginSchema),
+    mode: "onChange",
+  });
 
   const watchEmail = watch("email", "");
 
@@ -36,7 +36,7 @@ export default function Login() {
     try {
       const response = await fetch("http://localhost:3000/users");
       const users = await response.json();
-      
+
       const user = users.find(
         (user) => user.email === data.email && user.password === data.password
       );
@@ -50,7 +50,7 @@ export default function Login() {
     } catch (error) {
       console.error("Error during login:", error);
     }
-  }
+  };
 
   // Reveal password functionality
   const handlePassClick = (e) => {
@@ -106,7 +106,10 @@ export default function Login() {
 
         {/* Form */}
         <div className="bg-white flex justify-center items-center pt-16 pb-32">
-          <form className="flex flex-col items-center gap-3" onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className="flex flex-col items-center gap-3"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div className="space-y-10 w-full mb-2">
               <div className="relative w-full">
                 <label
