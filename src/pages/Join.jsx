@@ -11,6 +11,7 @@ import OptionBox from "../components/common/OptionBox";
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
 import { Link } from "react-router-dom";
+import { fetchData } from "../api/api";
 
 export default function Join() {
   usePageTitle("Liverpool FC - Account");
@@ -41,6 +42,7 @@ export default function Join() {
     console.log(methods.formState.errors);
   }, [methods.formState.errors]);
 
+  // Api call
   const onSubmit = async (data) => {
     const user = {
       fname: data.fname,
@@ -54,7 +56,7 @@ export default function Join() {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/users", {
+      const response = await fetchData("http://localhost:3000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,7 +64,7 @@ export default function Join() {
         body: JSON.stringify(user),
       });
 
-      if (response.ok) {
+      if (response) {
         alert("Registration successful!");
         // Redirect or clear form as needed
       } else {
@@ -186,7 +188,7 @@ export default function Join() {
               </ul>
               <h6 className="text-gray-600 font-bold">
                 Already have an account? <span> </span>
-                <Link to={"login"} className="underline italic text-liverRed">
+                <Link to={"/login"} className="underline italic text-liverRed">
                   Log in
                 </Link>
               </h6>

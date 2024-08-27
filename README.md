@@ -33,8 +33,15 @@ $env:VITE_NEWS_API_KEY=your_api_key
 
 ## Running the project
 
+#### Running the frontend
 ```bash
 npm run dev
 ```
+
+#### Running the mock api
+```bash
+npx json-server db.json
+```
+
 
 After following the steps above you can visit `http://localhost:5173` on your browser to view the website

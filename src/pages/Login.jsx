@@ -8,6 +8,7 @@ import loginSchema from "../validations/loginSchema";
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
 import { Link } from "react-router-dom";
+import { fetchData } from "../api/api";
 
 export default function Login() {
   usePageTitle("Liverpool FC - Account");
@@ -32,10 +33,10 @@ export default function Login() {
 
   const watchEmail = watch("email", "");
 
+  // Api call
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("http://localhost:3000/users");
-      const users = await response.json();
+      const users = await fetchData("http://localhost:3000/users");
 
       const user = users.find(
         (user) => user.email === data.email && user.password === data.password
@@ -220,7 +221,7 @@ export default function Login() {
               <p className="text-xs">
                 No account?<span> </span>
                 <Link
-                  to={""}
+                  to={"/join"}
                   className="text-liverRed font-bold underline italic"
                 >
                   Register Now
