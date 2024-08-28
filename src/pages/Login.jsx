@@ -8,7 +8,7 @@ import loginSchema from "../validations/loginSchema";
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
 import { Link } from "react-router-dom";
-import { fetchData } from "../api/api";
+import { authentication, fetchData } from "../api/api";
 
 export default function Login() {
   usePageTitle("Liverpool FC - Account");
@@ -35,9 +35,9 @@ export default function Login() {
 
   // Api call
   const onSubmit = async (data) => {
-    try {
-      const users = await fetchData("http://localhost:3000/users");
+    const users = await authentication();
 
+    if (users) {
       const user = users.find(
         (user) => user.email === data.email && user.password === data.password
       );
@@ -48,8 +48,8 @@ export default function Login() {
       } else {
         alert("Invalid email or password.");
       }
-    } catch (error) {
-      console.error("Error during login:", error);
+    } else {
+      alert("An error occured while logging in");
     }
   };
 

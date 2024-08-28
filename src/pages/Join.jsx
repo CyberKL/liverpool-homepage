@@ -11,7 +11,7 @@ import OptionBox from "../components/common/OptionBox";
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
 import { Link } from "react-router-dom";
-import { fetchData } from "../api/api";
+import { authentication, fetchData } from "../api/api";
 
 export default function Join() {
   usePageTitle("Liverpool FC - Account");
@@ -55,23 +55,19 @@ export default function Join() {
       options: data.options,
     };
 
-    try {
-      const response = await fetchData("http://localhost:3000/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
+    const response = await authentication({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
 
-      if (response) {
-        alert("Registration successful!");
-        // Redirect or clear form as needed
-      } else {
-        alert("Registration failed");
-      }
-    } catch (error) {
-      console.error("Error:", error);
+    if (response) {
+      alert("Registration successful!");
+      // Redirect or clear form as needed
+    } else {
+      alert("Registration failed");
     }
   };
 

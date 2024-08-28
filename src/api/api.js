@@ -7,3 +7,13 @@ export const fetchData = async (url, options = {}) => {
   const data = await response.json();
   return data;
 };
+
+export const authentication = (data = {}) => {
+  try {
+    const response = fetchData("http://localhost:3000/users", data);
+    return response;
+  } catch (error) {
+    console.error("Error during authentication:", error);
+    return null;
+  }
+};
