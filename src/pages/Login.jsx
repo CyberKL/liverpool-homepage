@@ -4,13 +4,13 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import loginSchema from "../validations/loginSchema";
+import { Link, useNavigate } from "react-router-dom";
+import { authentication } from "../api/api";
 
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
-import { Link } from "react-router-dom";
-import { authentication, fetchData } from "../api/api";
 
-export default function Login() {
+export default function Login({ login }) {
   usePageTitle("Liverpool FC - Account");
 
   const siteKey = "6LcXDiAqAAAAAG-wafGhvJP5R5Yic8cxFBYnXy7P";
@@ -19,6 +19,8 @@ export default function Login() {
   const [passVisible, setPassVisible] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPassFocused, setIsPassFocused] = useState(false);
+
+  const navigate = useNavigate();
 
   // Validation
   const {
@@ -43,8 +45,9 @@ export default function Login() {
       );
 
       if (user) {
-        alert("Login successful!");
-        // Redirect or handle successful login
+        // Handle successful login
+        login();
+        navigate("/profile")
       } else {
         alert("Invalid email or password.");
       }

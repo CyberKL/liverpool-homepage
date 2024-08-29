@@ -10,7 +10,7 @@ import OptionBox from "../components/common/OptionBox";
 
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authentication, fetchData } from "../api/api";
 
 export default function Join() {
@@ -23,6 +23,8 @@ export default function Join() {
   const [selectedRadio, setSelectedRadio] = useState("");
   const [loading, setLoading] = useState(true);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
+
+  const navigate = useNavigate();
 
   // Validation
   const methods = useForm({
@@ -38,9 +40,6 @@ export default function Join() {
     setValue,
     getValues,
   } = methods;
-  useEffect(() => {
-    console.log(methods.formState.errors);
-  }, [methods.formState.errors]);
 
   // Api call
   const onSubmit = async (data) => {
@@ -66,6 +65,7 @@ export default function Join() {
     if (response) {
       alert("Registration successful!");
       // Redirect or clear form as needed
+      navigate("/login")
     } else {
       alert("Registration failed");
     }
