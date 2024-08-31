@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import SmallMenu from "./SmallMenu";
 
@@ -12,8 +12,11 @@ import instagram from "../../assets/instagram.svg";
 import x from "../../assets/x.svg";
 import youtube from "../../assets/youtube.svg";
 import onefootball from "../../assets/onefootball.svg";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function SmallNav() {
+  const { isAuthenticated } = useContext(AuthContext);
+
   const [overlay, setOverlay] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [subMenuVisible, setSubMenuVisible] = useState(false);
@@ -309,36 +312,43 @@ export default function SmallNav() {
               </div>
             )}
 
-            <div>
-              <div className="bg-liverRed text-white space-y-8 py-6 px-4 h-min text-wrap">
-                <div className="space-y-5">
-                  <h2 className="font-bold  text-sm">
-                    JOIN MYLFC, YOUR FREE, OFFICIAL LFC ACCOUNT
-                  </h2>
-                  <p className="text-wrap text-lg leading-6">
-                    Unlock new, exciting and exclusive benefits including
-                    videos, match commentary, emagazine and more, all in one
-                    place.
-                  </p>
-                </div>
+            {/* Register and login */}
+              {isAuthenticated ? (
                 <div>
-                  <Link to={"/join"}>
-                    <div className="flex items-center px-5 pb-4 bg-black w-full h-16 hover:bg-opacity-60">
-                      REGISTER NOW
-                      <img src={arrow} alt="" className="filter invert h-4" />
-                    </div>
-                  </Link>
+                  <Link to={"/profile"} className="font-bold text-gray-700">PROFILE</Link>
                 </div>
-              </div>
-              <div className="mt-5">
-                <span className="text-gray-600 font-bold">
-                  Already registered?{" "}
-                  <Link to={"/login"} className="font-normal">
-                    Log in here
-                  </Link>
-                </span>
-              </div>
-            </div>
+              ) : (
+                <div>
+                  <div className="bg-liverRed text-white space-y-8 py-6 px-4 h-min text-wrap">
+                  <div className="space-y-5">
+                    <h2 className="font-bold  text-sm">
+                      JOIN MYLFC, YOUR FREE, OFFICIAL LFC ACCOUNT
+                    </h2>
+                    <p className="text-wrap text-lg leading-6">
+                      Unlock new, exciting and exclusive benefits including
+                      videos, match commentary, emagazine and more, all in one
+                      place.
+                    </p>
+                  </div>
+                  <div>
+                    <Link to={"/join"}>
+                      <div className="flex items-center px-5 pb-4 bg-black w-full h-16 hover:bg-opacity-60">
+                        REGISTER NOW
+                        <img src={arrow} alt="" className="filter invert h-4" />
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+                <div className="mt-5">
+                  <span className="text-gray-600 font-bold">
+                    Already registered?{" "}
+                    <Link to={"/login"} className="font-normal text-red-600">
+                      Log in here
+                    </Link>
+                  </span>
+                </div>
+                </div>
+              )}
 
             <div className="py-5 border-t border-gray-300">
               <div className="ml-auto flex gap-3">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import Menu from "./Menu";
 import LangMenu from "./LangMenu";
 import { Link } from "react-router-dom";
@@ -10,8 +10,11 @@ import lfc from "../../assets/LFC.svg";
 import join from "../../assets/join.svg";
 import lang from "../../assets/lang.svg";
 import standardChartered from "../../assets/Standard_Chartered.svg";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Navbar({ scrollValue = 200 }) {
+  const { isAuthenticated } = useContext(AuthContext);
+
   const [scrolled, setScrolled] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [menuTransition, setMenuTransition] = useState(false);
@@ -192,23 +195,33 @@ export default function Navbar({ scrollValue = 200 }) {
                 </li>
               </ul>
             </div>
-            <div className="border-r border-gray-400 pr-6">
-              <ul className="flex gap-8">
-                <li>
-                  <Link
-                    to={"/join"}
-                    className="flex items-center gap-2 hover:opacity-80"
-                  >
-                    <img src={join} alt="" />
-                    JOIN
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/login"} className="hover:opacity-80">
-                    LOGIN
-                  </Link>
-                </li>
-              </ul>
+            <div
+              className={`border-r border-gray-400 ${
+                isAuthenticated ? "pr-9" : "pr-6"
+              }`}
+            >
+              {isAuthenticated ? (
+                <Link to={"/profile"} className="hover:opacity-80">
+                  PROFILE
+                </Link>
+              ) : (
+                <ul className="flex gap-8">
+                  <li>
+                    <Link
+                      to={"/join"}
+                      className="flex items-center gap-2 hover:opacity-80"
+                    >
+                      <img src={join} alt="" />
+                      JOIN
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={"/login"} className="hover:opacity-80">
+                      LOGIN
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </div>
             <div className="border-r border-gray-400 pr-6">
               <button

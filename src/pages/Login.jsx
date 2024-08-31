@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import usePageTitle from "../hooks/usePageTitle";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
@@ -9,8 +9,11 @@ import { authentication } from "../api/api";
 
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
+import { AuthContext } from "../contexts/AuthContext";
 
-export default function Login({ login }) {
+export default function Login() {
+  const { login } = useContext(AuthContext);
+
   usePageTitle("Liverpool FC - Account");
 
   const siteKey = "6LcXDiAqAAAAAG-wafGhvJP5R5Yic8cxFBYnXy7P";
@@ -47,7 +50,7 @@ export default function Login({ login }) {
       if (user) {
         // Handle successful login
         login();
-        navigate("/profile")
+        navigate("/profile");
       } else {
         alert("Invalid email or password.");
       }
