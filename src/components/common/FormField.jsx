@@ -32,10 +32,10 @@ export default function FormField({
     <div className="relative p-5 w-full sm:col-span-6 col-span-full">
       <label
         htmlFor={name}
-        className={`text-xs absolute left-7 top-3  bg-white px-1 ${
+        className={`text-xs absolute left-7 top-3  bg-white dark:bg-gray-900 px-1 ${
           (errors[name] && (watchElement || names)) || isFocused
             ? "text-red-600"
-            : "text-gray-600"
+            : "text-gray-600 dark:text-white"
         }`}
       >
         {label} <span className="text-red-600">*</span>
@@ -49,9 +49,9 @@ export default function FormField({
         onChange={onInputChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className={`border text-gray-600 border-gray-300 w-full px-[14px] py-[10.5px] text-sm hover:border-black ${
+        className={`border text-gray-600 border-gray-300 w-full px-[14px] py-[10.5px] text-sm hover:border-black dark:bg-gray-900 dark:text-white dark:border-gray-700 dark:hover:border-white ${
           (errors[name] && (watchElement || names))
-            ? "border-red-600 hover:border-red-600"
+            ? "border-red-600 hover:border-red-600 dark:border-red-600 dark:hover:border-red-600"
             : ""
         } rounded-md focus:hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600`}
       />

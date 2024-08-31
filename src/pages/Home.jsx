@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="flex justify-center bg-gray-100 px-10 py-5">
+      <div className="flex justify-center bg-gray-100 dark:bg-gray-900 px-10 py-5">
         <Ad Ad={ad4} Height={"sm:h-[6rem]"} />
       </div>
       <div className="bg-liverRed pt-12">
@@ -34,42 +34,42 @@ export default function Home() {
         <div className="sm:px-28 px-4 z-40 sticky top-0 block xl:hidden">
           <SmallNav />
         </div>
-        <div className="space-y-10 bg-white mt-10">
+        <div className="space-y-10 bg-white dark:bg-gray-900 mt-10">
           <div className="bg-liverRed pb-32">
             <Headlines />
           </div>
           <div>
             <Retail />
           </div>
-          <div className="grid sm:grid-cols-2 place-items-center bg-gray-100 p-16 gap-8">
+          <div className="grid sm:grid-cols-2 place-items-center bg-gray-100 dark:bg-gray-900 p-16 gap-8">
             <Ad Ad={ad} />
             <Ad Ad={boxAd} />
           </div>
           <div>
             <Fixtures />
           </div>
-          <div className="flex justify-center bg-gray-100 sm:p-16">
+          <div className="flex justify-center bg-gray-100 dark:bg-gray-900 sm:p-16">
             <Ad Ad={ad2} />
           </div>
           <div>
             <MoreNews />
           </div>
           <div>
-            <div className="grid sm:grid-cols-2 place-items-center bg-gray-100 p-16 gap-8">
+            <div className="grid sm:grid-cols-2 place-items-center bg-gray-100 dark:bg-gray-900 p-16 gap-8">
               <Ad Ad={ad3j} />
               <Ad Ad={ad3} />
             </div>
             <div className="bg-liverRed pb-24 pt-14">
               <Women />
             </div>
-            <div className="bg-gray-100 pt-12 pb-24">
+            <div className="bg-gray-100 dark:bg-gray-900 pt-12 pb-24">
               <Community />
             </div>
           </div>
           <div>
             <Memory />
           </div>
-          <div className="bg-gray-100">
+          <div className="bg-gray-100 dark:bg-gray-900">
             <Trophies />
           </div>
           <div>

@@ -4,7 +4,7 @@ import arrow from '../../assets/arrow.svg'
 
 export default function RetailPost({ Image, Description, Price, OriginalPrice }) {
   return (
-    <Link to={''} className='border border-gray-200 min-h grid sm:grid-cols-1 grid-cols-2'>
+    <Link to={''} className='border border-gray-200 min-h grid sm:grid-cols-1 grid-cols-2 dark:bg-white'>
         <div className='relative'>
             <img src={Image} alt="" className='w-auto h-full' />
             {OriginalPrice && (

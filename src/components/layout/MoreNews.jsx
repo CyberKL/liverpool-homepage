@@ -97,10 +97,10 @@ export default function MoreNews() {
     <div className="px-4 py-20 sm:px-0" ref={ref}>
       <div className="flex flex-col items-center sm:relative">
         <div className="sm:space-y-8 w-full sm:w-auto">
-          <div className="py-2 px-5 bg-black text-sm font-bold text-white w-fit rounded-3xl">
+          <div className="py-2 px-5 bg-black text-sm font-bold text-white dark:bg-white dark:text-black w-fit rounded-3xl">
             <span>MORE NEWS</span>
           </div>
-          <div className="hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 sm:w-[70rem] w-full p-3 space-y-10">
+          <div className="hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 sm:w-[70rem] w-full p-3 space-y-10 dark:text-white">
             <div className="w-3/4">
               <h3 className="sm:text-4xl text-2xl text-wrap">
                 <span className="text-lg font-bold mr-2">TOUR</span>
@@ -126,21 +126,21 @@ export default function MoreNews() {
             onScroll={handleScroll}
           >
             <div className="sm:relative">
-              <div className="sm:bg-white sm:absolute sm:top-[35rem] flex sm:flex-col w-full">
+              <div className="sm:bg-white sm:dark:bg-gray-900 sm:absolute sm:top-[35rem] flex sm:flex-col w-full">
                 <HeadlinePost
-                  dark={true}
+                  dark={!document.querySelector("html").classList.contains("dark")}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />
                 <div className="border-l border-gray-400 min-h-full sm:hidden"></div>
                 <HeadlinePost
-                  dark={true}
+                  dark={!document.querySelector("html").classList.contains("dark")}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />
                 <div className="border-l border-gray-400 min-h-full sm:hidden"></div>
                 <HeadlinePost
-                  dark={true}
+                  dark={!document.querySelector("html").classList.contains("dark")}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />

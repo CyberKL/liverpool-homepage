@@ -165,14 +165,14 @@ export default function Join() {
         </div>
 
         <div>
-          <div className="bg-gray-100 md:pt-[72px] md:pb-[88px] flex justify-center">
+          <div className="bg-gray-100 dark:bg-gray-950 md:pt-[72px] md:pb-[88px] flex justify-center">
             <div className="flex flex-col items-center space-y-4 text-center py-20">
               <h1 className="text-liverRed text-[2.5rem]">Why join MyLFC?</h1>
-              <p className="text-center text-wrap max-w-md text-gray-600 space-y-4">
+              <p className="text-center text-wrap max-w-md text-gray-600 dark:text-white space-y-4">
                 Unlock new, exciting and exclusive benefits all in one place.
                 Join MyLFC, your FREE, Official LFC Account.
               </p>
-              <ul className="list-disc list-inside my-4 text-center text-gray-600">
+              <ul className="list-disc list-inside my-4 text-center text-gray-600 dark:text-white">
                 <li>The chance to win amazing prizes every week</li>
                 <li>Unlock behind-the-scenes videos</li>
                 <li>Follow the match with live commentary</li>
@@ -182,7 +182,7 @@ export default function Join() {
                 <li>Join the conversation on LFC Fan Forums</li>
                 <li>Earn even more benefits and rewards</li>
               </ul>
-              <h6 className="text-gray-600 font-bold">
+              <h6 className="text-gray-600 dark:text-white font-bold">
                 Already have an account? <span> </span>
                 <Link to={"/login"} className="underline italic text-liverRed">
                   Log in
@@ -192,7 +192,7 @@ export default function Join() {
           </div>
 
           {/* Form */}
-          <div className="bg-white flex justify-center items-center pt-16 pb-32">
+          <div className="bg-white dark:bg-gray-900 flex justify-center items-center pt-16 pb-32">
             <div className="max-w-screen-sm">
               <FormProvider {...methods}>
                 <form
@@ -223,7 +223,7 @@ export default function Join() {
                       useIcons={false}
                     />
                     <div className="col-span-full p-5">
-                      <div className="p-4 bg-gray-100 text-[0.625rem] text-gray-600">
+                      <div className="p-4 bg-gray-100 text-[0.625rem] text-gray-600 dark:bg-gray-900 dark:text-white">
                         <h6 className="font-bold mb-1">
                           For your security please ensure your password:
                         </h6>
@@ -244,33 +244,33 @@ export default function Join() {
                     </div>
                     <div className="col-span-full grid grid-cols-12">
                       <div className="relative sm:col-span-6 col-span-full p-5">
-                        <label className="text-gray-600 text-xs absolute left-7 top-3 bg-white px-1">
+                        <label className="text-gray-600 text-xs absolute left-7 top-3 bg-white dark:bg-gray-900 px-1">
                           Gender
                         </label>
                         <select
                           {...register("gender")}
                           defaultValue={""}
-                          className="w-full focus:bg-gray-100 focus:ring-2 focus:ring-red-600 border border-gray-300 bg-white text-sm text-gray-600 rounded-md hover:border-black cursor-pointer px-[14px] py-[10.5px]"
+                          className="w-full focus:bg-gray-100 focus:ring-2 focus:ring-red-600 border border-gray-300 bg-white text-sm text-gray-600 rounded-md hover:border-black dark:bg-gray-900 dark:focus:bg-gray-800 dark:border-gray-700 dark:hover:border-white dark:text-white cursor-pointer px-[14px] py-[10.5px]"
                         >
-                          <option disabled value={""} className="bg-gray-50">
+                          <option disabled value={""} className="bg-gray-50 dark:bg-gray-800">
                             Select Gender
                           </option>
-                          <option className="bg-white" value={"Male"}>
+                          <option className="bg-white dark:bg-gray-900" value={"Male"}>
                             Male
                           </option>
-                          <option className="bg-white" value={"Female"}>
+                          <option className="bg-white dark:bg-gray-900" value={"Female"}>
                             Female
                           </option>
                         </select>
                       </div>
                       <div className="relative sm:col-span-6 col-span-full p-5">
-                        <label className="text-gray-600 text-xs absolute left-7 top-3 bg-white px-1">
+                        <label className="text-gray-600 text-xs absolute left-7 top-3 bg-white dark:bg-gray-900 px-1">
                           Country <span className="text-red-600">*</span>
                         </label>
                         <select
                           {...register("country")}
                           defaultValue={"United Kingdom"}
-                          className="w-full focus:bg-gray-100 focus:ring-2 focus:ring-red-600 border border-gray-300 bg-white text-sm text-gray-600 rounded-md hover:border-black cursor-pointer px-[14px] py-[10.5px]"
+                          className="w-full focus:bg-gray-100 focus:ring-2 focus:ring-red-600 border border-gray-300 bg-white text-sm text-gray-600 rounded-md hover:border-black dark:bg-gray-900 dark:focus:bg-gray-800 dark:border-gray-700 dark:hover:border-white dark:text-white cursor-pointer px-[14px] py-[10.5px]"
                         >
                           <option disabled value={""}>
                             Select Country
@@ -279,7 +279,7 @@ export default function Join() {
                             <option
                               key={index}
                               value={country.name.common}
-                              className="bg-white"
+                              className="bg-white dark:bg-gray-900"
                             >
                               {country.name.common}
                             </option>
@@ -289,19 +289,19 @@ export default function Join() {
                     </div>
                     <div className="p-5 grid grid-cols-12 col-span-full">
                       <div className="mb-1 col-span-full">
-                        <span className="uppercase text-gray-600 font-bold">
+                        <span className="uppercase text-gray-600 dark:text-gray-300 font-bold">
                           get more from lfc?
                         </span>
                       </div>
                       <div className="mb-4 col-span-full">
                         <div className="grid grid-cols-12 sm:place-items-start">
                           <div className="mt-4 space-y-1 sm:col-span-6 col-span-full">
-                            <p className="text-xs">
+                            <p className="text-xs dark:text-white">
                               Do you want to hear about our products,
                               competitions, new signings, tickets, club news and
                               partner offers?
                             </p>
-                            <p className="text-gray-600 text-[0.625rem]">
+                            <p className="text-gray-600 dark:text-gray-300 text-[0.625rem]">
                               We send offers and news on behalf of our partners
                               but do not share your information directly with
                               them.
@@ -377,7 +377,7 @@ export default function Join() {
                           isOptionsVisible ? "visible" : "hidden"
                         }`}
                       >
-                        <div className="text-gray-600">
+                        <div className="text-gray-600 dark:text-gray-300">
                           <h3 className="font-bold text-xs uppercase">
                             content
                           </h3>
@@ -417,10 +417,10 @@ export default function Join() {
                           />
 
                           <div className="col-span-full">
-                            <h3 className="font-bold text-xs uppercase text-gray-600">
+                            <h3 className="font-bold text-xs uppercase text-gray-600 dark:text-gray-300">
                               channels
                             </h3>
-                            <span className="text-[0.625rem]">
+                            <span className="text-[0.625rem] dark:text-white">
                               Please select how you would like to hear from us
                             </span>
                           </div>
@@ -429,7 +429,7 @@ export default function Join() {
                           <OptionBox name={"mail"} Title={"Direct Mail"} />
                           <OptionBox name={"telephone"} Title={"Telephone"} />
 
-                          <h3 className="font-bold text-xs uppercase text-gray-600 col-span-full">
+                          <h3 className="font-bold text-xs uppercase text-gray-600 dark:text-gray-300 col-span-full">
                             Other types of communication
                           </h3>
                           <OptionBox
@@ -442,7 +442,7 @@ export default function Join() {
                       </div>
 
                       <div className="mt-4 col-span-full">
-                        <p className="text-gray-600 text-[0.625rem]">
+                        <p className="text-gray-600 text-[0.625rem] dark:text-gray-300">
                           You can acess our preference centre at any time to opt
                           out of communications and control how [we] use your
                           data. By registering to join, you confirm that you
@@ -470,7 +470,7 @@ export default function Join() {
                       >
                         Register Now
                       </button>
-                      <p className="text-xs">
+                      <p className="text-xs dark:text-white">
                         Already have an account?<span> </span>
                         <Link
                           to={"/login"}
