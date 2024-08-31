@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import usePageTitle from "../hooks/usePageTitle";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import HeadlinePost from "../components/common/HeadlinePost";
 
-import bigImg from "../assets/bigImg.webp";
 import arrow from "../assets/arrow.svg";
 import SmallNav from "../components/common/SmallNav";
 import useFetchNews from "../hooks/useFetchNews";
@@ -19,6 +19,8 @@ export default function AllNews() {
 
   const [footerVisible, setFooterVisible] = useState(false);
   const footerRef = useRef(null);
+
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -204,7 +206,7 @@ export default function AllNews() {
               key={index}
             >
               <HeadlinePost
-                dark={!document.querySelector("html").classList.contains("dark")}
+                dark={theme !== "dark"}
                 title={article.title}
                 text={article.description}
                 time={new Date(article.publishedAt)}

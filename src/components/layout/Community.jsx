@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import HeadlinePost from "../common/HeadlinePost";
 import { Link } from "react-router-dom";
 import arrow from "../../assets/arrow.svg";
-import community from "../../assets/community.webp";
 import useFetchNews from "../../hooks/useFetchNews";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Community() {
   const { articles } = useFetchNews(3);
+
+  const { theme } = useContext(ThemeContext)
+
   return (
     <div className="sm:px-20 px-4 pt-5 space-y-5">
       <div className="flex text-sm font-bold px-4">
@@ -35,7 +38,7 @@ export default function Community() {
             Image={article.urlToImage}
             Source={article.url}
             key={index}
-            dark={!document.querySelector("html").classList.contains("dark")}
+            dark={theme !== "dark"}
           />
         ))}
       </div>
