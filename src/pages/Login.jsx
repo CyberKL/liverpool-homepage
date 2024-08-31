@@ -94,9 +94,9 @@ export default function Login({ login }) {
         <div className="w-full"></div>
       </div>
       <div>
-        <div className="bg-gray-100 flex flex-col items-center pt-[72px] pb-[88px] space-y-4">
+        <div className="bg-gray-100 dark:bg-gray-950 flex flex-col items-center pt-[72px] pb-[88px] space-y-4">
           <h1 className="text-liverRed text-[2.5rem]">Log In</h1>
-          <p className="text-gray-600 font-bold max-w-4xl text-center">
+          <p className="text-gray-600 dark:text-gray-300 font-bold max-w-4xl text-center">
             No account? Unlock new, exciting and exclusive benefits all in one
             place. Join MyLFC, your FREE, Official LFC Account.{" "}
             <Link
@@ -109,7 +109,7 @@ export default function Login({ login }) {
         </div>
 
         {/* Form */}
-        <div className="bg-white flex justify-center items-center pt-16 pb-32">
+        <div className="bg-white dark:bg-gray-900 flex justify-center items-center pt-16 pb-32">
           <form
             className="flex flex-col items-center gap-3"
             onSubmit={handleSubmit(onSubmit)}
@@ -118,10 +118,10 @@ export default function Login({ login }) {
               <div className="relative w-full">
                 <label
                   htmlFor="email"
-                  className={`text-xs absolute left-2 -top-2 bg-white px-1 ${
+                  className={`text-xs absolute left-2 -top-2 bg-white dark:bg-gray-900 px-1 ${
                     (watchEmail && errors.email) || isEmailFocused
                       ? "text-red-600"
-                      : "text-gray-600"
+                      : "text-gray-600 dark:text-white"
                   }`}
                 >
                   E-mail <span className="text-red-600">*</span>
@@ -133,9 +133,9 @@ export default function Login({ login }) {
                   {...register("email")}
                   onFocus={() => setIsEmailFocused(true)}
                   onBlur={() => setIsEmailFocused(false)}
-                  className={`border border-gray-300 w-full p-2 hover:border-black ${
+                  className={`border border-gray-300 w-full p-2 hover:border-black dark:bg-gray-900 dark:hover:border-white dark:border-gray-700 dark:text-white ${
                     watchEmail && errors.email
-                      ? "border-red-600 hover:border-red-600"
+                      ? "border-red-600 hover:border-red-600 dark:border-red-600 dark:hover:border-red-600"
                       : ""
                   } rounded-md focus:hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600`}
                 />
@@ -174,8 +174,8 @@ export default function Login({ login }) {
               <div className="relative w-full">
                 <label
                   htmlFor="password"
-                  className={`text-xs absolute left-2 -top-2 bg-white px-1 ${
-                    isPassFocused ? "text-red-600" : "text-gray-600"
+                  className={`text-xs absolute left-2 -top-2 bg-white dark:bg-gray-900 px-1 ${
+                    isPassFocused ? "text-red-600" : "text-gray-600 dark:text-white"
                   }`}
                 >
                   Password <span className="text-red-600">*</span>
@@ -187,7 +187,7 @@ export default function Login({ login }) {
                   {...register("password")}
                   onFocus={() => setIsPassFocused(true)}
                   onBlur={() => setIsPassFocused(false)}
-                  className="w-full p-2 border border-gray-300 hover:border-black rounded-md focus:hover:border-transparent focus:outline-none focus:ring-red-600 focus:ring-2"
+                  className="w-full p-2 border border-gray-300 hover:border-black dark:bg-gray-900 dark:hover:border-white dark:border-gray-700 rounded-md focus:hover:border-transparent focus:outline-none focus:ring-red-600 focus:ring-2 dark:text-white"
                 />
                 <button
                   className="absolute right-3 top-2 rounded-full py-[2x] overflow-hidden hover:bg-gray-100 hover:bg-opacity-70"
@@ -221,7 +221,7 @@ export default function Login({ login }) {
               >
                 Login
               </button>
-              <p className="text-xs">
+              <p className="text-xs dark:text-white">
                 No account?<span> </span>
                 <Link
                   to={"/join"}

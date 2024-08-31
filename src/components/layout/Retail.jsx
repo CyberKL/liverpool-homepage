@@ -34,11 +34,11 @@ export default function Retail() {
 
   return (
     <div className='space-y-5 sm:px-20 px-4'>
-        <div className='py-2 px-5 bg-black text-sm font-bold text-white w-fit rounded-3xl'>
+        <div className='py-2 px-5 bg-black dark:bg-white dark:text-black text-sm font-bold text-white w-fit rounded-3xl'>
             <span>LFC RETAIL</span>
         </div>
         <div className=''>
-            <ul className='flex gap-7 border-b border-gray-200 font-bold text-sm overflow-x-scroll text-nowrap'>
+            <ul className='flex gap-7 border-b border-gray-200 font-bold text-sm overflow-x-scroll text-nowrap dark:text-white'>
                 <li><button id='Away' className={`py-4 ${activeSection === 'Away' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>NEW: 24/25 AWAY KIT</button></li>
                 <li><button id='Training' className={`py-4 ${activeSection === 'Training' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>NEW: 24/25 TRAINING</button></li>
                 <li><button id='Like' className={`py-4 ${activeSection === 'Like' ? 'border-b-2 border-liverRed': 'opacity-30 hover:opacity-70'}`} onClick={handleClick}>YOU MAY LIKE</button></li>

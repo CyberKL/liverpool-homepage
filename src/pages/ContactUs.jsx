@@ -42,15 +42,15 @@ export default function ContactUs() {
         </div>
       </header>
       <main>
-        <div className="pb-[90px]">
+        <div className="pb-[90px] dark:bg-gray-900">
           <div className="bg-liverRed text-white px-[60px] pt-[120px] pb-[30px] flex items-end gap-4">
             <h1 className="uppercase font-bold text-xl lg:text-4xl">
               supporter services
             </h1>
             <span className="lg:text-5xl text-2xl font-roboto">Contact Us</span>
           </div>
-          <div className="px-[60px]">
-            <ul className="flex gap-7 border-b border-gray-200 font-bold text-[14px]">
+          <div className="px-[60px] dark:bg-gray-900">
+            <ul className="flex gap-7 border-b border-gray-200 font-bold text-[14px] dark:text-white">
               <li>
                 <div
                   id="contactUs"
@@ -70,10 +70,10 @@ export default function ContactUs() {
             </ul>
           </div>
 
-          <div className="py-[60px] space-y-[60px]">
+          <div className="py-[60px] space-y-[60px] dark:bg-gray-900">
             <div className="grid place-items-center">
               <div className="space-y-[30px] md:max-w-2xl sm:max-w-lg sm:px-0 px-10">
-                <p className="font-bold text-gray-600 text-lg">
+                <p className="font-bold text-gray-600 dark:text-gray-300 text-lg">
                   If you need help with any Club services, including Ticketing,
                   LFC Official Membership and the Official Liverpool FC Store,
                   you can find useful information and answers to frequently
@@ -83,7 +83,7 @@ export default function ContactUs() {
                   </Link>
                   .
                 </p>
-                <p className="text-gray-600 text-lg">
+                <p className="text-gray-600 dark:text-gray-300 text-lg">
                   You can also contact our Supporter Services team for help with
                   any of the above, or for general Club enquiries or complaints.
                   We’re normally available Monday to Saturday.
@@ -91,7 +91,7 @@ export default function ContactUs() {
               </div>
             </div>
 
-            <div className="space-y-[30px] bg-gray-100 py-[40px]">
+            <div className="space-y-[30px] bg-gray-100 dark:bg-gray-950 dark:text-white py-[40px]">
               <div className="flex justify-center">
                 <div className="max-w-2xl w-full space-y-[15px]">
                   <h2 className="text-2xl px-[15px] font-roboto">
@@ -126,7 +126,7 @@ export default function ContactUs() {
                         </div>
                       </button>
                       {isNormalExpanded && (
-                        <div className="space-y-[30px] px-[15px] text-gray-600">
+                        <div className="space-y-[30px] px-[15px] text-gray-600 dark:text-gray-300">
                           <p className="font-bold">
                             Live Chat, Social and Email
                           </p>
@@ -172,7 +172,7 @@ export default function ContactUs() {
                         </div>
                       </button>
                       {isMatchdayExpanded && (
-                        <div className="space-y-[30px] px-[15px] text-gray-600">
+                        <div className="space-y-[30px] px-[15px] text-gray-600 dark:text-gray-300">
                           <p>
                             <span className="font-bold">
                               Ticketing enquiries{" "}
@@ -198,12 +198,12 @@ export default function ContactUs() {
 
               <div className="flex justify-center font-roboto text-[16px]">
                 <div className="max-w-2xl w-full px-[15px] space-y-[30px]">
-                  <h2 className="text-gray-800 text-[26px]">
+                  <h2 className="text-gray-800 dark:text-gray-100 text-[26px]">
                     Ways to Contact Supporter Service
                   </h2>
                   <div>
                     <h3 className="font-bold text-[18px]">Chat</h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       Press the chat button on the bottom-right of the screen to
                       start a chat with us. Please note, you must accept cookies
                       on liverpoolfc.com for the Live Chat button to appear.
@@ -211,7 +211,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[18px]">Email</h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       <Link to={""} className="text-red-600 underline">
                         Fill in our contact form
                       </Link>{" "}
@@ -220,7 +220,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[18px]">Social Media</h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       <Link
                         to={""}
                         className="text-red-600 underline font-bold"
@@ -236,7 +236,7 @@ export default function ContactUs() {
                       to respond within 4 hours.
                     </p>
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-300">
                     <Link to={""} className="text-red-600 underline font-bold">
                       Contact us on Facebook
                     </Link>{" "}
@@ -250,7 +250,7 @@ export default function ContactUs() {
                     <h3 className="font-bold text-[18px]">
                       Visit the Ticket Office at Anfield
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       The Ticket Office is located underneath the Kop stand. You
                       can contact us about ticketing using the options above,
                       but if you're at{" "}
@@ -264,7 +264,7 @@ export default function ContactUs() {
                     <h3 className="font-bold text-[18px]">
                       Accessible Contact Options
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       Any supporters who are registered with the club as
                       disabled, or who have accessibility needs that prevent
                       them from using our online contact options, can also call

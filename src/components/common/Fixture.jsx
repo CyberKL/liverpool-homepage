@@ -55,7 +55,7 @@ export default function Fixture({
   }
 
   return (
-    <div className="space-y-20 border border-gray-200 w-full p-5 flex flex-col">
+    <div className="space-y-20 border border-gray-200 w-full p-5 flex flex-col dark:bg-white">
       <div>
         <h3 className="font-bold">{Competition.toUpperCase()}</h3>
         <p className="text-gray-600 text-sm">{formatDate(Date)}</p>

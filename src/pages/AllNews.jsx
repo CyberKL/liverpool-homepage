@@ -54,7 +54,7 @@ export default function AllNews() {
   }, []);
 
   return (
-    <div>
+    <div className="dark:bg-gray-900">
       <header className="sticky top-0 z-10">
         <div className="relative">
           {!scrolled && <div className="bg-red-700 h-16"></div>}
@@ -68,17 +68,17 @@ export default function AllNews() {
               <div
                 className={`flex justify-between ${
                   scrolled ? "py-3" : "pt-10 pb-5"
-                } px-5 bg-white border-b border-gray-300`}
+                } px-5 bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-50`}
               >
-                <div className="px-3 py-1 bg-black rounded-3xl">
-                  <span className="uppercase text-white text-sm font-bold">
+                <div className="px-3 py-1 bg-black dark:bg-white rounded-3xl">
+                  <span className="uppercase text-white dark:text-black text-sm font-bold">
                     all news
                   </span>
                 </div>
                 <div
-                  className={`text-gray-600  ${
+                  className={`text-gray-600 dark:text-gray-300  ${
                     filtersVisible
-                      ? "bg-white absolute right-20 top-20 p-5 pl-20 shadow-lg"
+                      ? "bg-white dark:bg-gray-900 absolute right-20 top-20 p-5 pl-20 shadow-lg"
                       : ""
                   }`}
                 >
@@ -107,7 +107,7 @@ export default function AllNews() {
                     </svg>
                   </div>
                   {filtersVisible && (
-                    <div className="flex flex-col items-end gap-2 mt-2 mb-4">
+                    <div className="flex flex-col items-end gap-2 mt-2 mb-4 dark:bg-gray-900">
                       <button className="cursor-pointer opacity-40">
                         All news
                       </button>
@@ -204,7 +204,7 @@ export default function AllNews() {
               key={index}
             >
               <HeadlinePost
-                dark={true}
+                dark={!document.querySelector("html").classList.contains("dark")}
                 title={article.title}
                 text={article.description}
                 time={new Date(article.publishedAt)}

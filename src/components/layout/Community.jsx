@@ -10,18 +10,18 @@ export default function Community() {
   return (
     <div className="sm:px-20 px-4 pt-5 space-y-5">
       <div className="flex text-sm font-bold px-4">
-        <div className="px-3 py-2 text-white bg-black rounded-3xl">
+        <div className="px-3 py-2 text-white bg-black dark:bg-white dark:text-black rounded-3xl">
           <span>CLUB AND COMMUNITY</span>
         </div>
         <Link
           to={""}
-          className="ml-auto flex gap-1 items-center text-gray-500 group hover:opacity-30"
+          className="ml-auto flex gap-1 items-center text-gray-500 dark:text-white group hover:opacity-30"
         >
           <span>MORE</span>
           <img
             src={arrow}
             alt=""
-            className="h-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+            className="h-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1 dark:invert" 
           />
         </Link>
       </div>
@@ -35,7 +35,7 @@ export default function Community() {
             Image={article.urlToImage}
             Source={article.url}
             key={index}
-            dark={true}
+            dark={!document.querySelector("html").classList.contains("dark")}
           />
         ))}
       </div>

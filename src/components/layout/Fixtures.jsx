@@ -8,7 +8,7 @@ export default function Fixtures() {
   return (
     <div className='sm:px-20 px-4 space-y-10'>
       <div className='grid sm:grid-cols-2 gap-4'>
-        <div className='py-2 px-3 bg-black text-sm font-bold text-white rounded-3xl w-fit'>
+        <div className='py-2 px-3 bg-black text-sm font-bold text-white dark:bg-white dark:text-black rounded-3xl w-fit'>
           <span>PRE-SEASON</span>
         </div>
         <div className='ml-auto flex gap-8 items-center'>
@@ -16,9 +16,9 @@ export default function Fixtures() {
             <img src={downArrow} alt="" />
             <span>ADD FIXTURES TO CALENDAR</span>
           </Link>
-          <Link to={''} className='flex gap-1 items-center text-sm text-gray-600 font-bold group hover:opacity-80'>
+          <Link to={''} className='flex gap-1 items-center text-sm text-gray-600 dark:text-white font-bold group hover:opacity-80'>
             <span>All FIXTURES</span>
-            <img src={arrow} alt="" className='h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
+            <img src={arrow} alt="" className='h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1 dark:invert' />
           </Link>
         </div>
       </div>
