@@ -1,5 +1,25 @@
 {
   "users": [
-
+    {
+      "id": "c218",
+      "fname": "Khaled",
+      "lname": "Lotfy",
+      "email": "khaled@example.com",
+      "dob": "1989-12-31T22:00:00.000Z",
+      "password": "rMk-24cCCLS?VJt",
+      "gender": "Male",
+      "country": "United Kingdom",
+      "options": {
+        "offers": true,
+        "newsletters": true,
+        "foundation": true,
+        "partners": true,
+        "email": true,
+        "sms": true,
+        "mail": true,
+        "telephone": true,
+        "other": true
+      }
+    }
   ]
 }

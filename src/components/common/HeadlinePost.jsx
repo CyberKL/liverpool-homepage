@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 import lfcDiary from '../../assets/lfc-diary-010824.webp'
+import { useSelector } from "react-redux";
 
 export default function HeadlinePost({
   Image = lfcDiary,
@@ -18,6 +19,8 @@ export default function HeadlinePost({
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
+
+  const theme = useSelector((state) => state.theme);
 
   function formatDate(date) {
     // Helper function to get the day suffix (st, nd, rd, th)
@@ -79,10 +82,10 @@ export default function HeadlinePost({
               <img src={Image} alt="" className="w-full h-[280px]" />
             </div>
           )}
-          <div className={dark ? "text-black" : "text-white"}>
+          <div className={dark && theme !== "dark" ? "text-black" : "text-white"}>
             {ShowImage && (<time dateTime={time}>
               <span
-                className={`text-xs ${dark ? "text-gray-600" : "text-pink-200"}`}
+                className={`text-xs ${dark && theme !== "dark" ? "text-gray-600" : "text-pink-200"}`}
               >
                 {elapsedTime}
               </span>

@@ -6,11 +6,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import loginSchema from "../validations/loginSchema";
 import { Link, useNavigate } from "react-router-dom";
 import { authentication } from "../api/api";
+import { useDispatch, useSelector } from "react-redux";
+import { setAuth } from "../features/auth/authSlice"
 
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
 
-export default function Login({ login }) {
+export default function Login() {
   usePageTitle("Liverpool FC - Account");
 
   const siteKey = "6LcXDiAqAAAAAG-wafGhvJP5R5Yic8cxFBYnXy7P";
@@ -21,6 +23,8 @@ export default function Login({ login }) {
   const [isPassFocused, setIsPassFocused] = useState(false);
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   // Validation
   const {
@@ -46,7 +50,7 @@ export default function Login({ login }) {
 
       if (user) {
         // Handle successful login
-        login();
+        dispatch(setAuth(true));
         navigate("/profile")
       } else {
         alert("Invalid email or password.");

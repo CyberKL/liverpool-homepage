@@ -12,6 +12,7 @@ import instagram from "../../assets/instagram.svg";
 import x from "../../assets/x.svg";
 import youtube from "../../assets/youtube.svg";
 import onefootball from "../../assets/onefootball.svg";
+import { useSelector } from "react-redux";
 
 export default function SmallNav() {
   const [overlay, setOverlay] = useState(false);
@@ -19,6 +20,8 @@ export default function SmallNav() {
   const [subMenuVisible, setSubMenuVisible] = useState(false);
   const [section, setSection] = useState("");
   const [langMenuVisible, setLangMenuVisible] = useState(false);
+
+  const auth = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (menuVisible) {
@@ -309,36 +312,40 @@ export default function SmallNav() {
               </div>
             )}
 
-            <div>
-              <div className="bg-liverRed text-white space-y-8 py-6 px-4 h-min text-wrap">
-                <div className="space-y-5">
-                  <h2 className="font-bold  text-sm">
-                    JOIN MYLFC, YOUR FREE, OFFICIAL LFC ACCOUNT
-                  </h2>
-                  <p className="text-wrap text-lg leading-6">
-                    Unlock new, exciting and exclusive benefits including
-                    videos, match commentary, emagazine and more, all in one
-                    place.
-                  </p>
+            {auth ? (
+              <Link to={"/profile"} className="text-gray-600 font-bold">Profile</Link>
+            ) : (
+              <div>
+                <div className="bg-liverRed text-white space-y-8 py-6 px-4 h-min text-wrap">
+                  <div className="space-y-5">
+                    <h2 className="font-bold  text-sm">
+                      JOIN MYLFC, YOUR FREE, OFFICIAL LFC ACCOUNT
+                    </h2>
+                    <p className="text-wrap text-lg leading-6">
+                      Unlock new, exciting and exclusive benefits including
+                      videos, match commentary, emagazine and more, all in one
+                      place.
+                    </p>
+                  </div>
+                  <div>
+                    <Link to={"/join"}>
+                      <div className="flex items-center px-5 pb-4 bg-black w-full h-16 hover:bg-opacity-60">
+                        REGISTER NOW
+                        <img src={arrow} alt="" className="filter invert h-4" />
+                      </div>
+                    </Link>
+                  </div>
                 </div>
-                <div>
-                  <Link to={"/join"}>
-                    <div className="flex items-center px-5 pb-4 bg-black w-full h-16 hover:bg-opacity-60">
-                      REGISTER NOW
-                      <img src={arrow} alt="" className="filter invert h-4" />
-                    </div>
-                  </Link>
+                <div className="mt-5">
+                  <span className="text-gray-600 font-bold">
+                    Already registered?{" "}
+                    <Link to={"/login"} className="font-normal">
+                      Log in here
+                    </Link>
+                  </span>
                 </div>
               </div>
-              <div className="mt-5">
-                <span className="text-gray-600 font-bold">
-                  Already registered?{" "}
-                  <Link to={"/login"} className="font-normal">
-                    Log in here
-                  </Link>
-                </span>
-              </div>
-            </div>
+            )}
 
             <div className="py-5 border-t border-gray-300">
               <div className="ml-auto flex gap-3">

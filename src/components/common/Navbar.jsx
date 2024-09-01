@@ -10,6 +10,7 @@ import lfc from "../../assets/LFC.svg";
 import join from "../../assets/join.svg";
 import lang from "../../assets/lang.svg";
 import standardChartered from "../../assets/Standard_Chartered.svg";
+import { useSelector } from "react-redux";
 
 export default function Navbar({ scrollValue = 200 }) {
   const [scrolled, setScrolled] = useState(false);
@@ -21,6 +22,8 @@ export default function Navbar({ scrollValue = 200 }) {
   const [arrowRotaion, setArrowRotation] = useState({ rotate: "90deg" });
   const [langMenuVisible, setLangMenuVisible] = useState(false);
   const navbarRef = useRef(null);
+  
+  const auth = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (menuVisible) {
@@ -192,8 +195,11 @@ export default function Navbar({ scrollValue = 200 }) {
                 </li>
               </ul>
             </div>
-            <div className="border-r border-gray-400 pr-6">
-              <ul className="flex gap-8">
+            <div className={`border-r border-gray-400 ${auth ? 'pr-9' : 'pr-6'}`}>
+              {auth ? (
+                <Link to={"/profile"}>Profile</Link>
+              ): (
+                <ul className="flex gap-8">
                 <li>
                   <Link
                     to={"/join"}
@@ -209,6 +215,7 @@ export default function Navbar({ scrollValue = 200 }) {
                   </Link>
                 </li>
               </ul>
+              )}
             </div>
             <div className="border-r border-gray-400 pr-6">
               <button
