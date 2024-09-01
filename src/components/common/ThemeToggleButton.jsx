@@ -8,7 +8,7 @@ const ThemeToggleButton = () => {
       onClick={toggleTheme}
       className="p-2 bg-gray-200 dark:bg-gray-700 dark:text-white rounded-full"
     >
-      Switch {theme === "light" ? "Dark" : "Light"} Mode
+      Switch To {theme === "light" ? "Dark" : "Light"} Mode
     </button>
   );
 };

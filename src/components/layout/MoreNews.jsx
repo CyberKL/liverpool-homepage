@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import lfcDiary from "../../assets/lfc-diary-010824.webp";
 import HeadlinePost from "../common/HeadlinePost";
-import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function MoreNews() {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,8 +9,6 @@ export default function MoreNews() {
   const [matches, setMatches] = useState(false);
   const [position, setPosition] = useState("");
   const previousScrollTop = useRef(0);
-
-  const { theme } = useContext(ThemeContext)
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 640px)");
@@ -131,19 +128,19 @@ export default function MoreNews() {
             <div className="sm:relative">
               <div className="sm:bg-white sm:dark:bg-gray-900 sm:absolute sm:top-[35rem] flex sm:flex-col w-full">
                 <HeadlinePost
-                  dark={theme !== "dark"}
+                  dark={true}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />
                 <div className="border-l border-gray-400 min-h-full sm:hidden"></div>
                 <HeadlinePost
-                  dark={theme !== "dark"}
+                  dark={true}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />
                 <div className="border-l border-gray-400 min-h-full sm:hidden"></div>
                 <HeadlinePost
-                  dark={theme !== "dark"}
+                  dark={true}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />

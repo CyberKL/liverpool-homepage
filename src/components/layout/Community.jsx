@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import HeadlinePost from "../common/HeadlinePost";
 import { Link } from "react-router-dom";
 import arrow from "../../assets/arrow.svg";
 import useFetchNews from "../../hooks/useFetchNews";
-import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Community() {
   const { articles } = useFetchNews(3);
-
-  const { theme } = useContext(ThemeContext)
 
   return (
     <div className="sm:px-20 px-4 pt-5 space-y-5">
@@ -24,7 +21,7 @@ export default function Community() {
           <img
             src={arrow}
             alt=""
-            className="h-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1 dark:invert" 
+            className="h-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1 dark:invert"
           />
         </Link>
       </div>
@@ -38,7 +35,7 @@ export default function Community() {
             Image={article.urlToImage}
             Source={article.url}
             key={index}
-            dark={theme !== "dark"}
+            dark={true}
           />
         ))}
       </div>

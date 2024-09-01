@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import React from "react";
-import lfcDiary from '../../assets/lfc-diary-010824.webp'
+import React, { useContext } from "react";
+import lfcDiary from "../../assets/lfc-diary-010824.webp";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function HeadlinePost({
   Image = lfcDiary,
@@ -12,6 +13,8 @@ export default function HeadlinePost({
   Width = "",
   ShowImage = true,
 }) {
+  const { theme } = useContext(ThemeContext);
+
   const difference = Date.now() - time;
 
   const seconds = Math.floor(difference / 1000);
@@ -73,20 +76,30 @@ export default function HeadlinePost({
         to={Source}
         className={`px-3 hover:bg-black hover:bg-opacity-10 transition ease-in duration-200 h-full sm:w-full ${Width}`}
       >
-        <div className={`${ShowImage ? 'border-b py-5' : 'pb-5'} border-gray-400 space-y-5 h-full`}>
+        <div
+          className={`${
+            ShowImage ? "border-b py-5" : "pb-5"
+          } border-gray-400 space-y-5 h-full`}
+        >
           {ShowImage && (
             <div>
               <img src={Image} alt="" className="w-full h-[280px]" />
             </div>
           )}
-          <div className={dark ? "text-black" : "text-white"}>
-            {ShowImage && (<time dateTime={time}>
-              <span
-                className={`text-xs ${dark ? "text-gray-600" : "text-pink-200"}`}
-              >
-                {elapsedTime}
-              </span>
-            </time>)}
+          <div
+            className={dark && theme !== "dark" ? "text-black" : "text-white"}
+          >
+            {ShowImage && (
+              <time dateTime={time}>
+                <span
+                  className={`text-xs ${
+                    dark && theme !== "dark" ? "text-gray-600" : "text-pink-200"
+                  }`}
+                >
+                  {elapsedTime}
+                </span>
+              </time>
+            )}
             <h2 className="space-x-2">
               <span className="font-bold">{title}</span>
               <span>{text}</span>

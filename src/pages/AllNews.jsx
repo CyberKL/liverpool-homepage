@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import usePageTitle from "../hooks/usePageTitle";
-import { ThemeContext } from "../contexts/ThemeContext";
 
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
@@ -20,7 +19,6 @@ export default function AllNews() {
   const [footerVisible, setFooterVisible] = useState(false);
   const footerRef = useRef(null);
 
-  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -206,7 +204,7 @@ export default function AllNews() {
               key={index}
             >
               <HeadlinePost
-                dark={theme !== "dark"}
+                dark={true}
                 title={article.title}
                 text={article.description}
                 time={new Date(article.publishedAt)}
@@ -216,7 +214,11 @@ export default function AllNews() {
             </div>
           ))}
           <div className="col-span-full pt-[90px] pb-[120px] flex justify-center">
-            <button className="text-white flex items-center px-5 pb-4 bg-black w-full max-w-xs h-16 hover:bg-opacity-60" disabled={!hasMore} onClick={loadMore}>
+            <button
+              className="text-white flex items-center px-5 pb-4 bg-black w-full max-w-xs h-16 hover:bg-opacity-60"
+              disabled={!hasMore}
+              onClick={loadMore}
+            >
               LOAD MORE
               <img src={arrow} alt="" className="filter invert h-4" />
             </button>
