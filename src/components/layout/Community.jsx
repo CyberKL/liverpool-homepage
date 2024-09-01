@@ -35,7 +35,7 @@ export default function Community() {
             Image={article.urlToImage}
             Source={article.url}
             key={index}
-            dark={!document.querySelector("html").classList.contains("dark")}
+            dark={true}
           />
         ))}
       </div>

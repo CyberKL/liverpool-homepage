@@ -128,19 +128,19 @@ export default function MoreNews() {
             <div className="sm:relative">
               <div className="sm:bg-white sm:dark:bg-gray-900 sm:absolute sm:top-[35rem] flex sm:flex-col w-full">
                 <HeadlinePost
-                  dark={!document.querySelector("html").classList.contains("dark")}
+                  dark={true}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />
                 <div className="border-l border-gray-400 min-h-full sm:hidden"></div>
                 <HeadlinePost
-                  dark={!document.querySelector("html").classList.contains("dark")}
+                  dark={true}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />
                 <div className="border-l border-gray-400 min-h-full sm:hidden"></div>
                 <HeadlinePost
-                  dark={!document.querySelector("html").classList.contains("dark")}
+                  dark={true}
                   Width="w-[75vw] sm:w-auto"
                   ShowImage={matches}
                 />

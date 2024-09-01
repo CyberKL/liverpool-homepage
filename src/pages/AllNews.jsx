@@ -204,7 +204,7 @@ export default function AllNews() {
               key={index}
             >
               <HeadlinePost
-                dark={!document.querySelector("html").classList.contains("dark")}
+                dark={true}
                 title={article.title}
                 text={article.description}
                 time={new Date(article.publishedAt)}
