@@ -45,6 +45,26 @@ export default function MoreNews() {
       top: event.deltaY, // Scroll by the amount of wheel movement
       behavior: "smooth",
     });
+    if (position)
+    {
+      if (scrollRef.current.scrollTop === 0)
+        {
+          document.documentElement.scrollBy({
+            top:event.deltaY,
+            behavior: "smooth"
+          })
+          setPosition("top") 
+        } 
+      else if (scrollRef.current.scrollTop === 454) 
+        {
+          document.documentElement.scrollBy({
+            top:event.deltaY,
+            behavior: "smooth"
+          })
+          setPosition("bottom")
+  
+        }
+    }
   };
 
   const handlePageScroll = () => {
@@ -54,7 +74,10 @@ export default function MoreNews() {
       (position === "top" && currentScrollTop > previousScrollTop.current) ||
       (position === "bottom" && currentScrollTop < previousScrollTop.current)
     ) {
-      setPosition("");
+      scrollRef.current.focus(); // Focus the scrollable container
+      document.body.style.overflow = "hidden"; // Prevent background scrolling
+
+      document.addEventListener("wheel", handleWheel, { passive: false });
     }
 
     previousScrollTop.current = currentScrollTop;
