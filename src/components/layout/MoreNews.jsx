@@ -67,6 +67,48 @@ export default function MoreNews() {
     }
   };
 
+  const handleKeyDown = (event) => {
+    event.preventDefault(); // Prevent default scrolling
+    switch(event.key){
+      case "ArrowUp": {
+        console.log("up")
+        scrollRef.current.scrollBy({
+          top: -100,
+          behavior: 'smooth',
+        });
+        break
+      }
+      case "ArrowDown": {
+        console.log("down")
+        scrollRef.current.scrollBy({
+          top: 100,
+          behavior: 'smooth',
+        });
+        break
+      }
+    }
+    if (position)
+    {
+      if (scrollRef.current.scrollTop === 0)
+        {
+          document.documentElement.scrollBy({
+            top:-100,
+            behavior: "smooth"
+          })
+          setPosition("top") 
+        } 
+      else if (scrollRef.current.scrollTop === 454) 
+        {
+          document.documentElement.scrollBy({
+            top:100,
+            behavior: "smooth"
+          })
+          setPosition("bottom")
+  
+        }
+    }
+  }
+
   const handlePageScroll = () => {
     const currentScrollTop = document.documentElement.scrollTop;
 
@@ -78,17 +120,20 @@ export default function MoreNews() {
       document.body.style.overflow = "hidden"; // Prevent background scrolling
 
       document.addEventListener("wheel", handleWheel, { passive: false });
+      document.addEventListener("keydown", handleKeyDown, { passive: false })
     }
 
     previousScrollTop.current = currentScrollTop;
   };
   useEffect(() => {
     if (matches && isVisible && scrollRef.current) {
+      console.log(position)
       if (!position) {
         scrollRef.current.focus(); // Focus the scrollable container
         document.body.style.overflow = "hidden"; // Prevent background scrolling
 
         document.addEventListener("wheel", handleWheel, { passive: false });
+        document.addEventListener("keydown", handleKeyDown, { passive:false })
       } else {
         document.body.style.overflow = ""; // Restore default overflow
         document.removeEventListener("wheel", handleWheel);
@@ -98,6 +143,7 @@ export default function MoreNews() {
       return () => {
         document.body.style.overflow = ""; // Restore default overflow
         document.removeEventListener("wheel", handleWheel);
+        document.removeEventListener("keydown", handleKeyDown);
         document.removeEventListener("scroll", handlePageScroll);
       };
     }
