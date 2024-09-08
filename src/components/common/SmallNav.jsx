@@ -12,7 +12,8 @@ import instagram from "../../assets/instagram.svg";
 import x from "../../assets/x.svg";
 import youtube from "../../assets/youtube.svg";
 import onefootball from "../../assets/onefootball.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../features/auth/authSlice";
 
 export default function SmallNav() {
   const [overlay, setOverlay] = useState(false);
@@ -21,7 +22,9 @@ export default function SmallNav() {
   const [section, setSection] = useState("");
   const [langMenuVisible, setLangMenuVisible] = useState(false);
 
-  const auth = useSelector((state) => state.auth);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const role = useSelector((state) => state.auth.role);
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (menuVisible) {
@@ -312,8 +315,22 @@ export default function SmallNav() {
               </div>
             )}
 
-            {auth ? (
-              <Link to={"/profile"} className="text-gray-600 font-bold">Profile</Link>
+            {isAuthenticated ? (
+              <div className="grid grid-cols-12 gap-2">
+                {
+
+                role === "user" ? (
+                  <Link to={"/profile"} className="text-gray-600 font-bold col-span-full">
+                    Profile
+                  </Link>
+                ) : role === "admin" ? (
+                  <Link to={"/dashboard"} className="text-gray-600 font-bold col-span-full">
+                    Dashboard
+                  </Link>
+                ) : null
+                }
+                <button onClick={() => dispatch(logout())} className="col-span-4 text-left underline">Logout</button>
+              </div>
             ) : (
               <div>
                 <div className="bg-liverRed text-white space-y-8 py-6 px-4 h-min text-wrap">

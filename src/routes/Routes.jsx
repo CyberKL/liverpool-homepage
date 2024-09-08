@@ -10,6 +10,7 @@ import ScrollToTop from "../components/common/ScrollToTop";
 import ProtectedRoute from "./ProtectedRoute";
 import Profile from "../pages/Profile";
 import { useSelector } from "react-redux";
+import Dashboard from "../pages/Dashboard";
 
 const AppRoutes = () => {
   const auth = useSelector((state) => state.auth);
@@ -23,8 +24,11 @@ const AppRoutes = () => {
         <Route path="/news" element={<AllNews />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path='/contact-email-form' element={<ContactEmailForm />} />
-        <Route element={<ProtectedRoute isAuthenticated={auth} />}>
+        <Route element={<ProtectedRoute isAuthenticated={auth.isAuthenticated} allowedRoles={"user"} role={auth.role} />}>
           <Route path="/profile" element={<Profile />} />
+        </Route>
+        <Route element={<ProtectedRoute isAuthenticated={auth.isAuthenticated} allowedRoles={"admin"} role={auth.role} />}>
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </Router>

@@ -6,8 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import loginSchema from "../validations/loginSchema";
 import { Link, useNavigate } from "react-router-dom";
 import { authentication } from "../api/api";
-import { useDispatch, useSelector } from "react-redux";
-import { setAuth } from "../features/auth/authSlice"
+import { useDispatch } from "react-redux";
+import { login } from "../features/auth/authSlice";
 
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
@@ -41,22 +41,34 @@ export default function Login() {
 
   // Api call
   const onSubmit = async (data) => {
-    const users = await authentication();
+    const user = await authentication({email: data.email, password: data.password});
 
-    if (users) {
-      const user = users.find(
-        (user) => user.email === data.email && user.password === data.password
+    if (user) {
+      // Handle successful login
+
+      // Create a token
+      const token = {
+        id: user.id,
+        role: user.role.toLowerCase(),
+      };
+
+      dispatch(
+        login({
+          token: JSON.stringify(token),
+          user: JSON.stringify({
+            fname: user.fname,
+            lname: user.lname,
+            email: user.email,
+            dob: user.dob,
+            gender: user.gender,
+            country: user.country,
+          }),
+        })
       );
 
-      if (user) {
-        // Handle successful login
-        dispatch(setAuth(true));
-        navigate("/profile")
-      } else {
-        alert("Invalid email or password.");
-      }
+      navigate("/");
     } else {
-      alert("An error occured while logging in");
+      alert("Invalid email or password.");
     }
   };
 
@@ -179,7 +191,9 @@ export default function Login() {
                 <label
                   htmlFor="password"
                   className={`text-xs absolute left-2 -top-2 bg-white dark:bg-gray-900 px-1 ${
-                    isPassFocused ? "text-red-600" : "text-gray-600 dark:text-white"
+                    isPassFocused
+                      ? "text-red-600"
+                      : "text-gray-600 dark:text-white"
                   }`}
                 >
                   Password <span className="text-red-600">*</span>

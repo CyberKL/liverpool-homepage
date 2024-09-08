@@ -1,5 +1,268 @@
 {
   "users": [
-
+    {
+      "id": "c2a4",
+      "fname": "John",
+      "lname": "Doe",
+      "email": "john.doe@example.com",
+      "dob": "1985-04-12T00:00:00.000Z",
+      "password": "s3cr3tP@ssw0rd!",
+      "gender": "Male",
+      "country": "United States",
+      "options": {
+        "offers": true,
+        "newsletters": false,
+        "foundation": true,
+        "partners": false,
+        "email": true,
+        "sms": false,
+        "mail": true,
+        "telephone": true,
+        "other": false
+      },
+      "role": "Admin"
+    },
+    {
+      "id": "d3b5",
+      "fname": "Jane",
+      "lname": "Smith",
+      "email": "jane.smith@example.com",
+      "dob": "1990-08-22T00:00:00.000Z",
+      "password": "secureP@ssw0rd",
+      "gender": "Female",
+      "country": "Canada",
+      "options": {
+        "offers": true,
+        "newsletters": true,
+        "foundation": false,
+        "partners": true,
+        "email": true,
+        "sms": true,
+        "mail": false,
+        "telephone": false,
+        "other": true
+      },
+      "role": "User"
+    },
+    {
+      "id": "e4c6",
+      "fname": "Alex",
+      "lname": "Johnson",
+      "email": "alex.johnson@example.com",
+      "dob": "1995-12-05T00:00:00.000Z",
+      "password": "An0ther$ecureP@ss",
+      "gender": "",
+      "country": "United Kingdom",
+      "options": {
+        "offers": false,
+        "newsletters": true,
+        "foundation": true,
+        "partners": true,
+        "email": true,
+        "sms": false,
+        "mail": true,
+        "telephone": true,
+        "other": false
+      },
+      "role": "Admin"
+    },
+    {
+      "id": "f5d7",
+      "fname": "Emily",
+      "lname": "Davis",
+      "email": "emily.davis@example.com",
+      "dob": "1982-07-19T00:00:00.000Z",
+      "password": "P@ssw0rd1234",
+      "gender": "Female",
+      "country": "Australia",
+      "options": {
+        "offers": true,
+        "newsletters": true,
+        "foundation": false,
+        "partners": false,
+        "email": true,
+        "sms": true,
+        "mail": true,
+        "telephone": false,
+        "other": true
+      },
+      "role": "User"
+    },
+    {
+      "id": "g6e8",
+      "fname": "Michael",
+      "lname": "Brown",
+      "email": "michael.brown@example.com",
+      "dob": "1993-03-30T00:00:00.000Z",
+      "password": "P@ssw0rd!234",
+      "gender": "Male",
+      "country": "Germany",
+      "options": {
+        "offers": false,
+        "newsletters": false,
+        "foundation": true,
+        "partners": true,
+        "email": false,
+        "sms": false,
+        "mail": true,
+        "telephone": true,
+        "other": false
+      },
+      "role": "User"
+    },
+    {
+      "id": "h7f9",
+      "fname": "Sophia",
+      "lname": "Wilson",
+      "email": "sophia.wilson@example.com",
+      "dob": "1991-05-14T00:00:00.000Z",
+      "password": "StrongP@ssw0rd!",
+      "gender": "Female",
+      "country": "New Zealand",
+      "options": {
+        "offers": true,
+        "newsletters": true,
+        "foundation": true,
+        "partners": false,
+        "email": true,
+        "sms": false,
+        "mail": true,
+        "telephone": true,
+        "other": true
+      },
+      "role": "User"
+    },
+    {
+      "id": "i8g0",
+      "fname": "William",
+      "lname": "Taylor",
+      "email": "william.taylor@example.com",
+      "dob": "1989-09-29T00:00:00.000Z",
+      "password": "P@ssw0rd2024",
+      "gender": "Male",
+      "country": "South Africa",
+      "options": {
+        "offers": false,
+        "newsletters": true,
+        "foundation": false,
+        "partners": true,
+        "email": true,
+        "sms": true,
+        "mail": false,
+        "telephone": false,
+        "other": true
+      },
+      "role": "Admin"
+    },
+    {
+      "id": "j9h1",
+      "fname": "Olivia",
+      "lname": "Martin",
+      "email": "olivia.martin@example.com",
+      "dob": "2000-01-11T00:00:00.000Z",
+      "password": "S3cureP@ssw0rd",
+      "gender": "Female",
+      "country": "France",
+      "options": {
+        "offers": true,
+        "newsletters": false,
+        "foundation": true,
+        "partners": true,
+        "email": true,
+        "sms": true,
+        "mail": true,
+        "telephone": false,
+        "other": false
+      },
+      "role": "User"
+    },
+    {
+      "id": "k0i2",
+      "fname": "Ethan",
+      "lname": "Anderson",
+      "email": "ethan.anderson@example.com",
+      "dob": "1992-12-03T00:00:00.000Z",
+      "password": "P@ssw0rd$2024",
+      "gender": "",
+      "country": "Japan",
+      "options": {
+        "offers": true,
+        "newsletters": true,
+        "foundation": false,
+        "partners": true,
+        "email": false,
+        "sms": true,
+        "mail": true,
+        "telephone": true,
+        "other": false
+      },
+      "role": "Admin"
+    },
+    {
+      "id": "l1j3",
+      "fname": "Isabella",
+      "lname": "Lee",
+      "email": "isabella.lee@example.com",
+      "dob": "1987-11-25T00:00:00.000Z",
+      "password": "C0mpl3xP@ss",
+      "gender": "Female",
+      "country": "Germany",
+      "options": {
+        "offers": false,
+        "newsletters": true,
+        "foundation": true,
+        "partners": false,
+        "email": true,
+        "sms": false,
+        "mail": true,
+        "telephone": true,
+        "other": true
+      },
+      "role": "User"
+    },
+    {
+      "id": "m2k4",
+      "fname": "James",
+      "lname": "Harris",
+      "email": "james.harris@example.com",
+      "dob": "1994-06-20T00:00:00.000Z",
+      "password": "1234P@ssw0rd!",
+      "gender": "Male",
+      "country": "United Kingdom",
+      "options": {
+        "offers": false,
+        "newsletters": false,
+        "foundation": true,
+        "partners": true,
+        "email": false,
+        "sms": true,
+        "mail": true,
+        "telephone": false,
+        "other": true
+      },
+      "role": "Admin"
+    },
+    {
+      "id": "n3l5",
+      "fname": "Ava",
+      "lname": "Scott",
+      "email": "ava.scott@example.com",
+      "dob": "1988-02-28T00:00:00.000Z",
+      "password": "My$ecureP@ss",
+      "gender": "Female",
+      "country": "Brazil",
+      "options": {
+        "offers": true,
+        "newsletters": false,
+        "foundation": true,
+        "partners": true,
+        "email": true,
+        "sms": false,
+        "mail": true,
+        "telephone": true,
+        "other": false
+      },
+      "role": "User"
+    }
   ]
 }

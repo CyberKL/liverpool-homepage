@@ -11,7 +11,7 @@ import OptionBox from "../components/common/OptionBox";
 import arrow from "../assets/bold-arrow.svg";
 import lfcLogo from "../assets/LFC.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { authentication, fetchData } from "../api/api";
+import { createUser } from "../api/api";
 
 export default function Join() {
   usePageTitle("Liverpool FC - Account");
@@ -52,20 +52,15 @@ export default function Join() {
       gender: data.gender,
       country: data.country,
       options: data.options,
+      role: data.role,
     };
 
-    const response = await authentication({
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+    const response = await createUser(user);
 
     if (response) {
       alert("Registration successful!");
       // Redirect or clear form as needed
-      navigate("/login")
+      navigate("/login");
     } else {
       alert("Registration failed");
     }
@@ -124,11 +119,6 @@ export default function Join() {
     setTimeout(() => {
       e.target.setSelectionRange(cursorPos, cursorPos);
     }, 0);
-    const day = value.slice(0, 2);
-    const month = value.slice(3, 5);
-    const year = value.slice(6);
-    const date = new Date(year, month - 1, day);
-    return date;
   };
 
   // Handling radio buttons
@@ -252,13 +242,23 @@ export default function Join() {
                           defaultValue={""}
                           className="w-full focus:bg-gray-100 focus:ring-2 focus:ring-red-600 border border-gray-300 bg-white text-sm text-gray-600 rounded-md hover:border-black dark:bg-gray-900 dark:focus:bg-gray-800 dark:border-gray-700 dark:hover:border-white dark:text-white cursor-pointer px-[14px] py-[10.5px]"
                         >
-                          <option disabled value={""} className="bg-gray-50 dark:bg-gray-800">
+                          <option
+                            disabled
+                            value={""}
+                            className="bg-gray-50 dark:bg-gray-800"
+                          >
                             Select Gender
                           </option>
-                          <option className="bg-white dark:bg-gray-900" value={"Male"}>
+                          <option
+                            className="bg-white dark:bg-gray-900"
+                            value={"Male"}
+                          >
                             Male
                           </option>
-                          <option className="bg-white dark:bg-gray-900" value={"Female"}>
+                          <option
+                            className="bg-white dark:bg-gray-900"
+                            value={"Female"}
+                          >
                             Female
                           </option>
                         </select>
@@ -284,6 +284,29 @@ export default function Join() {
                               {country.name.common}
                             </option>
                           ))}
+                        </select>
+                      </div>
+                      <div className="relative col-span-full p-5 col-start-4 col-end-10">
+                        <label className="text-gray-600 text-xs absolute left-7 top-3 bg-white dark:bg-gray-900 px-1">
+                          Role <span className="text-red-600">*</span>
+                        </label>
+                        <select
+                          {...register("role")}
+                          defaultValue={"User"}
+                          className="w-full focus:bg-gray-100 focus:ring-2 focus:ring-red-600 border border-gray-300 bg-white text-sm text-gray-600 rounded-md hover:border-black dark:bg-gray-900 dark:focus:bg-gray-800 dark:border-gray-700 dark:hover:border-white dark:text-white cursor-pointer px-[14px] py-[10.5px]"
+                        >
+                          <option
+                            value={"User"}
+                            className="bg-white dark:bg-gray-900"
+                          >
+                            User
+                          </option>
+                          <option
+                            className="bg-white dark:bg-gray-900"
+                            value={"Admin"}
+                          >
+                            Admin
+                          </option>
                         </select>
                       </div>
                     </div>

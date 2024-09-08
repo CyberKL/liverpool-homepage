@@ -5,7 +5,6 @@ import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import HeadlinePost from "../components/common/HeadlinePost";
 
-import bigImg from "../assets/bigImg.webp";
 import arrow from "../assets/arrow.svg";
 import SmallNav from "../components/common/SmallNav";
 import useFetchNews from "../hooks/useFetchNews";

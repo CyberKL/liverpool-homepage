@@ -47,6 +47,7 @@ const joinSchema = yup.object().shape({
     telephone: yup.boolean(),
     other: yup.boolean(),
   }),
+  role: yup.string().required("This is a required field")
 });
 
 export default joinSchema;

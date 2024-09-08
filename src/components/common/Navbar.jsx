@@ -10,7 +10,8 @@ import lfc from "../../assets/LFC.svg";
 import join from "../../assets/join.svg";
 import lang from "../../assets/lang.svg";
 import standardChartered from "../../assets/Standard_Chartered.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../features/auth/authSlice";
 
 export default function Navbar({ scrollValue = 200 }) {
   const [scrolled, setScrolled] = useState(false);
@@ -22,8 +23,10 @@ export default function Navbar({ scrollValue = 200 }) {
   const [arrowRotaion, setArrowRotation] = useState({ rotate: "90deg" });
   const [langMenuVisible, setLangMenuVisible] = useState(false);
   const navbarRef = useRef(null);
-  
-  const auth = useSelector((state) => state.auth);
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const role = useSelector((state) => state.auth.role);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (menuVisible) {
@@ -195,26 +198,38 @@ export default function Navbar({ scrollValue = 200 }) {
                 </li>
               </ul>
             </div>
-            <div className={`border-r border-gray-400 ${auth ? 'pr-9' : 'pr-6'}`}>
-              {auth ? (
-                <Link to={"/profile"}>Profile</Link>
-              ): (
-                <ul className="flex gap-8">
-                <li>
-                  <Link
-                    to={"/join"}
-                    className="flex items-center gap-2 hover:opacity-80"
+            <div className={"border-r border-gray-400 pr-6"}>
+              {isAuthenticated ? (
+                <div className="flex gap-8">
+                  {role === "user" ? (
+                    <Link to={"/profile"}>Profile</Link>
+                  ) : role === "admin" ? (
+                    <Link to={"/dashboard"}>Dashboard</Link>
+                  ) : null}
+                  <button
+                    onClick={() => dispatch(logout())}
+                    className="col-span-4 text-left underline"
                   >
-                    <img src={join} alt="" />
-                    JOIN
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/login"} className="hover:opacity-80">
-                    LOGIN
-                  </Link>
-                </li>
-              </ul>
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <ul className="flex gap-8">
+                  <li>
+                    <Link
+                      to={"/join"}
+                      className="flex items-center gap-2 hover:opacity-80"
+                    >
+                      <img src={join} alt="" />
+                      JOIN
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={"/login"} className="hover:opacity-80">
+                      LOGIN
+                    </Link>
+                  </li>
+                </ul>
               )}
             </div>
             <div className="border-r border-gray-400 pr-6">

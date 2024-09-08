@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchData } from "../api/api";
+import { apiRequest } from "../api/api";
 
 const useFetchNews = (
   initialCount,
@@ -17,7 +17,7 @@ const useFetchNews = (
     lastWeek.setDate(today.getDate() - 14);
     const url = `https://newsapi.org/v2/everything?q="${query}"&language=en&from=${lastWeek.toISOString()}&sortBy=popularity&apiKey=${apiKey}`;
 
-    fetchData(url)
+    apiRequest(url)
       .then((data) => {
         // Ensure the article has an image
         const filteredArticles = data.articles.filter(
