@@ -1,5 +1,5 @@
 # Liverpool Website
-
+This is a Liverpool website clone
 
 ## Installation
 
